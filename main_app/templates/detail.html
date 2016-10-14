@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="panel-heading">
+    <h3 class="panel-title">{{ product.name }}</h3>
+</div>
+<div class="panel-body">
+    <table>
+        <tr>
+            <th>{{ product.price_usd }}</th>
+        </tr>
+        <tr>
+            <td>{{ product.desc }}</td>
+        </tr>
+    </table>
+</div>
+{% endblock %}

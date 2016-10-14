@@ -1,0 +1,22 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    <meta charset="UTF-8">
+    <title>Flybletop</title>
+</head>
+<body>
+    <nav class="navbar navber-default navbar-static-top text-center">
+        <a href="/">
+            <img src="{% static 'images/logo.png' %}" alt="FlybleTop">
+        </a>
+    </nav>
+    <main class="container container--mw700" role="main">
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>
