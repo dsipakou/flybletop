@@ -1,19 +1,20 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
+
 <div class="row">
     {% for insert in inserts %}
         <div class="col-md-4">
-            <a href="/{{ insert.id }}">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a href="/{{ insert.id }}">
                         <h2 class="panel-title"> {{ insert.name }}</h2>
-                    </div>
-                    <div class="panel-body">
-                        {{ insert.desc }}
-                    </div>
+                    </a>
                 </div>
-            </a>
+                <div class="panel-body">
+                    {{ insert.desc }}
+                </div>
+            </div>
         </div>
         {% if forloop.counter|divisibleby:"3" %}
             </div><div class="row">
