@@ -6,15 +6,47 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
     <script type="text/javascript" src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
     <meta charset="UTF-8">
     <title>Flybletop</title>
 </head>
 <body>
-    <nav class="navbar navber-default navbar-static-top text-center">
-        <a href="/">
-            <img src="{% static 'images/logo.png' %}" alt="FlybleTop">
-        </a>
-        <a href="/" class="align-right">Test here</a>
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="/" class="navbar-left">
+                    <img src="{% static 'images/logo.png' %}" alt="FlybleTop">
+                </a>
+                <button type="button" class="navbar-toggle pull-right" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <ul class="nav navbar-nav text-center collapse navbar-collapse">
+                <li>
+                    <a href="/" class="active">Home</a>
+                </li>
+                <li>
+                    <a href="{% url 'insert' %}">Inserts</a>
+                </li>
+                <li>
+                    <a href="{% url 'accessory' %}">Accessories</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right text-center collapse navbar-collapse">
+                <li>
+                    <a href="{% url 'login' %}" class="align-right">Login</a>
+                </li>
+            </ul>
+            <p>
+                <form class="form-inline float-xs-right navbar-right hidden-xs align-middle">
+                    <input class="form-control" type="text" placeholder="Search">
+                    <button class="btn align-middle btn-success" type="submit">Search</button>
+                </form>
+            </p>
+        </div>
     </nav>
     <main class="container container--mw700" role="main">
         {% block content %}

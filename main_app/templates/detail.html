@@ -14,6 +14,12 @@
         <tr>
             <td>{{ product.desc }}</td>
         </tr>
+        <div class="row"><img src="{{ product.base_image.url }}"></div>
+        {% for image in images %}
+            <div class="row"><img src="{{ image.image.url }}"></div>        
+        {% endfor %}
+        
+        
     </table>
 </div>
 {% endblock %}

@@ -18,5 +18,5 @@ class Product(models.Model):
 
 
 class Image(models.Model):
-    product = models.ForeignKey(Product)
+    product = models.ForeignKey(Product, related_name='images')
     image = models.ImageField(upload_to='images', default='media/default.png', )

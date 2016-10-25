@@ -1,0 +1,25 @@
+{% extends '../base.html' %}
+
+{% block content %}
+    <div class="content">
+        <div class="row">
+        {% for acc in accs %}
+            <div class="col-md-4">
+                <div class="panel panel-group">
+                    <div class="panel-heading">
+                        <a href="/{{ acc.id }}">
+                            <h2 class="panel-title"> {{ acc.name }}</h2>
+                        </a>
+                    </div>
+                    <div class="panel-body">
+                        {{ acc.desc }}
+                    </div>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:"3" %}
+                </div><div class="row">
+            {% endif %}
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}

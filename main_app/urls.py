@@ -4,8 +4,11 @@ from django.views.static import serve
 from . import views
 
 urlpatterns = [
+    url(r'^login/$', views.login_view, name='login'),
     url(r'^$', views.index),
-    url(r'^([0-9]+)/$', views.detail, name='detail')
+    url(r'^([0-9]+)/$', views.detail, name='detail'),
+    url(r'^insert/', views.insert, name='insert'),
+    url(r'^accessory/', views.accessory, name='accessory'),
 ]
 
 if settings.DEBUG:
