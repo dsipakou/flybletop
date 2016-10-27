@@ -2,6 +2,75 @@ h1 {
     color: green;
 }
 
-nav.navbar {
+div.catalog-item {
+    height: 520px;
+}
 
+#carousel {
+    padding: 0 10px 30px 10px;
+    margin-top: 30px;
+}
+
+.carousel-indicators {
+    right: 50%;
+    top: auto;
+    bottom: 0px;
+    margin-right: -19px;
+}
+
+.carousel-indicators li {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    cursor: pointer;
+    border: 4px solid #CCC;
+    opacity: 0.4;
+    overflow: hidden;
+    transition: all 0.4s;
+}
+
+.carousel-indicators li img {
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-indicators .active {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    background: #333333;
+    border-color: #f33;
+    opacity: 1;
+    overflow: hidden;
+}
+
+.carousel-control.left {
+    background-image: none;
+}
+
+.carousel-control.right {
+    background-image: none;
+}
+
+.carousel-inner {
+    min-height: 350px;
+}
+
+.carousel-inner .item img {
+    max-height: 300px;
+    max-width: 400px;
+}
+
+.modal-body {
+    padding: 3px;
+}
+
+.modal-dialog {
+    min-width: 0;
+    background: none;
+    max-width: 900px;
+}
+
+#imagepreview {
+    border-radius: 3px;
 }

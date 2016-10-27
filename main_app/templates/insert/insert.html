@@ -4,21 +4,24 @@
     <div class="content">
         <div class="row">
         {% for insert in inserts %}
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <a href="/{{ insert.id }}">
-                            <h2 class="panel-title"> {{ insert.name }}</h2>
-                        </a>
-                    </div>
+            <div class="col-md-6 col-sm-6 col-xs-12 col-lg-4 catalog-item">
+                <div class="panel">
+                    <a href="/{{ insert.id }}">
+                        <div class="panel-heading">
+                            <img src="{{ insert.base_image.url }}" />
+                        </div>
+                        <div class="panel-heading">
+
+                                <h2 class="panel-title text-info"> {{ insert.name }}</h2>
+                        </div>
+                    </a>
                     <div class="panel-body">
-                        {{ insert.desc }}
+                        <p>{{ insert.desc }}</p>
+                        <p><strong>{{ insert.price_usd }} <span>$</span></strong></p>
                     </div>
                 </div>
             </div>
-            {% if forloop.counter|divisibleby:"3" %}
-                </div><div class="row">
-            {% endif %}
+
         {% endfor %}
         </div>
     </div>

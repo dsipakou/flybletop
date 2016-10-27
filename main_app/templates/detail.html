@@ -2,24 +2,26 @@
 {% load staticfiles %}
 
 {% block content %}
-<div class="panel-heading">
-    <h3 class="panel-title">{{ product.name }}</h3>
-    <p><img src="{{ product.image.url }}" /></p>
-</div>
-<div class="panel-body">
-    <table>
-        <tr>
-            <th>{{ product.price_usd }}</th>
-        </tr>
-        <tr>
-            <td>{{ product.desc }}</td>
-        </tr>
-        <div class="row"><img src="{{ product.base_image.url }}"></div>
-        {% for image in images %}
-            <div class="row"><img src="{{ image.image.url }}"></div>        
-        {% endfor %}
-        
-        
-    </table>
-</div>
+    <h2>{{ product.name }}</h2>
+    <div class="row">
+        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12">
+            <div id="detail-slider" class="carousel slide relative">
+                <div class="carousel-inner">
+                    <img src="{{ product.base_image.url }}" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-offset-1 col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-12 hidden-xs">
+                    <div class="slider">
+                        <ol class="carousel-indicators list-unstyled">
+                            {% for image in images %}
+                                <li class="carousel-indicator" data-slide-to="0" data-target="#detail-slider" style="background-image: url({{ image.image.url }});"></li>
+                            {% endfor %}
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

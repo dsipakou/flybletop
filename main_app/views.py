@@ -34,7 +34,7 @@ def index(request):
 def detail(request, product_id):
     product = Product.objects.get(id=product_id)
     images = product.images.all()
-    return render(request, 'detail.html', {'product': product, 'images': images})
+    return render(request, 'detail1.html', {'product': product, 'images': images})
 
 
 def insert(request):
