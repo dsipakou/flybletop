@@ -39,17 +39,19 @@ div.catalog-item {
     height: 50px;
     margin: 5px;
     background: #333333;
-    border-color: #f33;
+    border-color: #2c3e50;
     opacity: 1;
     overflow: hidden;
 }
 
 .carousel-control.left {
     background-image: none;
+    color: #2c3e50;
 }
 
 .carousel-control.right {
     background-image: none;
+    color: #2c3e50;
 }
 
 .carousel-inner {
