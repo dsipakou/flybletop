@@ -5,14 +5,18 @@ from . import views
 
 urlpatterns = [
     url(r'^login/$', views.login_view, name='login'),
+    url(r'^logout/$', views.logout_view, name='logout'),
     url(r'^$', views.index),
-    url(r'^([0-9]+)/$', views.detail, name='detail'),
-    url(r'^insert/', views.insert, name='insert'),
-    url(r'^accessory/', views.accessory, name='accessory'),
+    url(r'^insert/([0-9]+)/$', views.detail, name='ins_detail'),
+    url(r'^accessory/([0-9]+)/$', views.detail, name='acc_detail'),
+    url(r'^insert/$', views.insert, name='insert'),
+    url(r'^accessory/$', views.accessory, name='accessory'),
+    url(r'^favorite_product/$', views.favorite_product, name='favorite_product'),
+    url(r'^like_product/$', views.like_product, name='like_product'),
+    url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT,})
 ]
 
 if settings.DEBUG:
     urlpatterns += [
-        url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT, }),
-        url(r'^like_product$', views.like_product, name='like_product'),
+        url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT, })
     ]

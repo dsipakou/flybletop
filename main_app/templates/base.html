@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'fancybox/source/jquery.fancybox.css' %}" media="screen" />
     <link rel="stylesheet" type="text/css" href="{% static 'fancybox/source/helpers/jquery.fancybox-buttons.css' %}" media="screen" />
@@ -19,56 +20,18 @@
     <title>Flybletop</title>
 </head>
 <body>
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
-                <a href="/" class="navbar-left">
-                    <img src="{% static 'images/logo.png' %}" alt="FlybleTop">
-                </a>
-                <button type="button" class="navbar-toggle pull-right" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <ul class="nav navbar-nav text-center collapse navbar-collapse">
-                <li>
-                    <a href="/" class="active">Home</a>
-                </li>
-                <li>
-                    <a href="{% url 'insert' %}">Inserts</a>
-                </li>
-                <li>
-                    <a href="{% url 'accessory' %}">Accessories</a>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right text-center collapse navbar-collapse">
-                <li>
-                    <a href="{% url 'login' %}" class="align-right">Login</a>
-                </li>
-            </ul>
-            <p>
-                <form class="form-inline float-xs-right navbar-right hidden-xs align-middle">
-                    <input class="form-control" type="text" placeholder="Search">
-                    <button class="btn align-middle btn-success" type="submit">Search</button>
-                </form>
-            </p>
-        </div>
-    </nav>
+    {% include 'header.html' %}
     <main class="container container--mw700" role="main">
         <div class="breadcrumbs">
-            {% include 'breadcrumb.html' with path='asfasfasf saf dasfsafs af ' %}
+            <ul class="list-inline">
+                {% block breadcrumb %}
+                <li><a href="/">Home</a></li>
+                {% endblock %}
+            </ul>
         </div>
         {% block content %}
         {% endblock %}
     </main>
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                footer
-            </div>
-        </div>
-    </footer>
+    {% include 'footer.html' %}
 </body>
 </html>

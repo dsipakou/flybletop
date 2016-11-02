@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Product(models.Model):
@@ -20,3 +21,21 @@ class Product(models.Model):
 class Image(models.Model):
     product = models.ForeignKey(Product, related_name='images')
     image = models.ImageField(upload_to='images', default='media/default.png', )
+
+    def __str__(self):
+        return self.name
+
+
+class Like(models.Model):
+    TYPES = (
+        (1, 'Like'),
+        (2, 'Favorite')
+    )
+    product = models.ForeignKey(Product, related_name='product_id')
+    user = models.ForeignKey(User, related_name='user_id', default=None, null=True)
+    like_type = models.IntegerField(choices=TYPES)
+    ip_address = models.CharField(max_length=20, default='')
+
+    def __str__(self):
+        return self.name
+

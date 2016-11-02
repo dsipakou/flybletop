@@ -1,4 +1,4 @@
-{% extends '../base.html' %}
+{% extends 'insert/base.html' %}
 
 {% block content %}
     <div class="content">
@@ -6,13 +6,12 @@
         {% for insert in inserts %}
             <div class="col-md-6 col-sm-6 col-xs-12 col-lg-4 catalog-item">
                 <div class="panel">
-                    <a href="/{{ insert.id }}">
+                    <a href="{{ insert.id }}">
                         <div class="panel-heading">
                             <img src="{{ insert.base_image.url }}" />
                         </div>
                         <div class="panel-heading">
-
-                                <h2 class="panel-title text-info"> {{ insert.name }}</h2>
+                            <h2 class="panel-title text-info"> {{ insert.name }}</h2>
                         </div>
                     </a>
                     <div class="panel-body">
@@ -25,4 +24,7 @@
         {% endfor %}
         </div>
     </div>
+    {% if user.is_authenticated %}
+        залогинился! о
+    {% endif %}
 {% endblock %}

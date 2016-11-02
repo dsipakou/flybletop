@@ -2,6 +2,35 @@ h1 {
     color: green;
 }
 
+.pt-2 {
+    padding-top: 2px;
+}
+
+.pl-5 {
+    padding-left: 5px;
+}
+
+.btn-secondary {
+    color: #373a3c;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.btn-secondary:hover {
+    box-shadow: 0 0 1px rgba(0,0,0,0.6);
+    color: black;
+}
+
+.btn.disabled, .btn.disabled:hover {
+    opacity: 0.2; !important;
+    cursor: default;
+}
+
+.btn.favorite-button, .btn.like-button, .btn.favorite-button:active, .btn.like-button:active {
+    border-radius: 15px;
+    outline: none;
+}
+
 div.catalog-item {
     height: 520px;
 }
@@ -75,4 +104,13 @@ div.catalog-item {
 
 #imagepreview {
     border-radius: 3px;
+}
+
+.breadcrumbs i {
+    font-size: x-small;
+    padding-right: 10px;
+}
+
+.favorite-active {
+    color: orange;
 }

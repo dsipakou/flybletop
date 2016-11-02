@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+    {{ block.super }}
+    <li><i class="glyphicon glyphicon-menu-right"></i><a href="{% url 'accessory' %}">Accessories</a></li>
+{% endblock %}

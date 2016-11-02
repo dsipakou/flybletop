@@ -1,0 +1,61 @@
+{% extends base_template %}
+
+{% load staticfiles %}
+
+{% block breadcrumb %}
+    {{ block.super }}
+    <li><i class="glyphicon glyphicon-menu-right"></i><a href=".">{{ product.name }}</a></li>
+{% endblock%}
+
+{% block content %}
+    <h2>{{ product.name }}</h2>
+    <div class="row">
+        <div class="col-md-7" data-wow-delay="0.2s">
+            <div class="carousel slide" data-ride="carousel" data-interval="false" id="carousel">
+                <div class="carousel-inner text-center">
+                    {% for image in images %}
+                        <div class="item {% if forloop.counter0 == 0 %}active{% endif %}">
+                            <a href="{{ image.image.url }}" class="fancybox-thumb" rel="fancybox-thumb"><img id="imageresource" src="{{ image.image.url }}" class="img-responsive center-block"/></a>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="row">
+                    <a data-slide="prev" href="#carousel" class="left carousel-control hidden-xs"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                    <ol class="carousel-indicators">
+                        {% for image in images %}
+                            <li data-target="#carousel" data-slide-to="{{ forloop.counter0 }}" class="{% if forloop.counter0 == 0 %} active {% endif %}"><img class="img-responsive " src="{{ image.image.url }}" alt=""></li>
+                        {% endfor %}
+                    </ol>
+                    <a data-slide="next" href="#carousel" class="right carousel-control hidden-xs"><i class="glyphicon glyphicon-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <p><strong>{{ product.price_usd }} <span>$</span></strong></p>
+            <p>{{ product.desc }}</p>
+            <p>
+            {% if user.is_authenticated %}
+                <button class="btn btn-xs {% if fav %} btn-warning {% else %} btn-secondary {% endif %} favorite-button" type="button" data-id="{{ product.id }}">
+                    <i class="fa fa-star"></i>
+                </button>
+            {% endif %}
+            <button data-toggle="tooltip" class="btn btn-xs {% if like %} btn-danger {% else %} btn-secondary {% endif %} like-button" type="button" data-id="{{ product.id }}">
+                <i class="fa fa-heart"></i>  <small>{% if likes > 0 %}{{ likes }}{% endif %}</small>
+                </button>
+            </p>
+
+        </div>
+
+
+        <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <img src="" id="imagepreview">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
