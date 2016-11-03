@@ -31,23 +31,27 @@ h1 {
     outline: none;
 }
 
+a.carousel-control{
+    margin-bottom: 90px;
+}
+
 div.catalog-item {
     height: 520px;
 }
 
-#carousel {
+#product-carousel {
     padding: 0 10px 30px 10px;
     margin-top: 30px;
 }
 
-.carousel-indicators {
+#product-carousel .carousel-indicators {
     right: 50%;
     top: auto;
     bottom: 0px;
     margin-right: -19px;
 }
 
-.carousel-indicators li {
+#product-carousel .carousel-indicators li {
     width: 50px;
     height: 50px;
     margin: 5px;
@@ -58,12 +62,12 @@ div.catalog-item {
     transition: all 0.4s;
 }
 
-.carousel-indicators li img {
+#product-carousel .carousel-indicators li img {
     height: 100%;
     width: 100%;
 }
 
-.carousel-indicators .active {
+#product-carousel .carousel-indicators .active {
     width: 50px;
     height: 50px;
     margin: 5px;
@@ -73,23 +77,35 @@ div.catalog-item {
     overflow: hidden;
 }
 
-.carousel-control.left {
+#product-carousel .carousel-control.left {
     background-image: none;
     color: #2c3e50;
 }
 
-.carousel-control.right {
+#product-carousel .carousel-control.right {
     background-image: none;
     color: #2c3e50;
 }
 
-.carousel-inner {
+#product-carousel .carousel-inner {
     min-height: 350px;
 }
 
-.carousel-inner .item img {
+#product-carousel .carousel-inner .item img {
     max-height: 300px;
     max-width: 400px;
+}
+
+#Carousel .item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 32rem;
+}
+
+#Carousel .container {
+    z-index: 10;
 }
 
 .modal-body {
@@ -106,6 +122,10 @@ div.catalog-item {
     border-radius: 3px;
 }
 
+.breadcrumbs {
+    margin-top: 20px;
+}
+
 .breadcrumbs i {
     font-size: x-small;
     padding-right: 10px;
@@ -113,4 +133,12 @@ div.catalog-item {
 
 .favorite-active {
     color: orange;
+}
+
+.navbar-static-top {
+    margin-bottom: 0;
+}
+
+form .alert {
+    height: 30%;
 }

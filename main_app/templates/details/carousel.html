@@ -1,0 +1,18 @@
+<div class="carousel slide" data-ride="carousel" data-interval="false" id="product-carousel">
+    <div class="carousel-inner text-center">
+        {% for image in images %}
+            <div class="item {% if forloop.counter0 == 0 %}active{% endif %}">
+                <a href="{{ image.image.url }}" class="fancybox-thumb" rel="fancybox-thumb"><img id="imageresource" src="{{ image.image.url }}" class="img-responsive center-block"/></a>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="row">
+        <a data-slide="prev" href="#product-carousel" class="left carousel-control hidden-xs"><i class="glyphicon glyphicon-chevron-left"></i></a>
+        <ol class="carousel-indicators">
+            {% for image in images %}
+                <li data-target="#product-carousel" data-slide-to="{{ forloop.counter0 }}" class="{% if forloop.counter0 == 0 %} active {% endif %}"><img class="img-responsive " src="{{ image.image.url }}" alt=""></li>
+            {% endfor %}
+        </ol>
+        <a data-slide="next" href="#product-carousel" class="right carousel-control hidden-xs"><i class="glyphicon glyphicon-chevron-right"></i></a>
+    </div>
+</div>

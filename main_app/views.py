@@ -1,9 +1,8 @@
 from django.shortcuts import render
 from .models import Product, Like
-from .forms import SearchForm, LoginForm
+from .forms import SearchForm, LoginForm, RegistrationForm
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
-from django.db.models import Q
 import json
 
 
@@ -19,14 +18,31 @@ def login_view(request):
                     login(request, user)
                     return HttpResponseRedirect('/')
                 else:
-                    form.add_error(None, 'User is no activated')
-                    return render(request, 'login.html', {'form': form})
+                    form.add_error(None, 'User is not activated')
+                    return render(request, 'authentication/login.html', {'form': form})
             else:
-                form.add_error(None, 'User is not exist')
-                return render(request, 'login.html', {'form': form})
+                form.add_error(None, 'Cannot login. Please, check your credentials.')
+                return render(request, 'authentication/login.html', {'form': form})
     else:
         form = LoginForm()
-        return render(request, 'login.html', {'form': form})
+        return render(request, 'authentication/login.html', {'form': form})
+
+
+def signup_view(request):
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            dd = {}
+            dd['username'] = form.cleaned_data['username']
+            dd['email'] = form.cleaned_data['email']
+            dd['password1'] = form.cleaned_data['password1']
+            form.save(dd)
+            return HttpResponseRedirect('/')
+        else:
+            return render(request, 'authentication/signup.html', {'form': form})
+    else:
+        form = RegistrationForm()
+        return render(request, 'authentication/signup.html', {'form': form})
 
 
 def logout_view(request):

@@ -1,18 +1,40 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
-{% block content %}
-    <div class="row well well-lg">
-        <div class="col-md-4">
-            <h2>Inserts, Accessories</h2>
-            <p>and many other stuff</p>
-        </div>
-        <div class="col-md-4">
-            <h2>Some other stuff</h2>
-            <p>hello there</p>
-        </div>
-    </div>
-    <div class="row">
+{% block breadcrumb %}
 
+{% endblock %}
+
+{% block index_carousel %}
+<div id="Carousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="Carousel" data-slide-to="0" class="active"></li>
+        <li data-target="Carousel" data-slide-to="1"></li>
+        <li data-target="Carousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="">
+            <div class="container">
+                    <h1>Example headline</h1>
+                    <p>Here is some text</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="">
+            <div class="container">
+                    <h1>Example headline 2</h1>
+                    <p>Here is some text 2</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="">
+            <div class="container">
+                    <h1>Example headline 3</h1>
+                    <p>Here is some text 3</p>
+            </div>
+        </div>
     </div>
+</div>
+
 {% endblock %}

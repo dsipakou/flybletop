@@ -20,7 +20,9 @@
     <title>Flybletop</title>
 </head>
 <body>
-    {% include 'header.html' %}
+    {% include 'main/header.html' %}
+    {% block index_carousel %}
+    {% endblock %}
     <main class="container container--mw700" role="main">
         <div class="breadcrumbs">
             <ul class="list-inline">
@@ -32,6 +34,6 @@
         {% block content %}
         {% endblock %}
     </main>
-    {% include 'footer.html' %}
+    {% include 'main/footer.html' %}
 </body>
 </html>

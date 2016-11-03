@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
+{% block breadcrumb %}
+{% endblock %}
+
 {% block content %}
 
 {% if form.errors %}
@@ -17,20 +20,12 @@
 {% endif %}
 <form method="post" action=".">
     {% csrf_token %}
-    {% load widget_tweaks %}
     <div class="container">
         <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-6 panel panel-group">
-            <p>
-                {% render_field form.username class="form-control" placeholder="Username" %}
-                {{ form.username.errors }}
-            </p>
-            <p>
-                {% render_field form.password class="form-control" placeholder="Password" %}
-                {{ form.password.errors }}
-            </p>
-            <p>
-                <button type="submit" class="btn btn-success">Login</button>
-            </p>
+            {% for field in form %}
+                <p>{{ field }}</p>
+            {% endfor %}
+            <p><button type="submit" class="btn btn-success">Login</button></p>
         </div>
     </div>
 </form>

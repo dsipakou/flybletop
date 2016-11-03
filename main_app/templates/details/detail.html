@@ -11,24 +11,7 @@
     <h2>{{ product.name }}</h2>
     <div class="row">
         <div class="col-md-7" data-wow-delay="0.2s">
-            <div class="carousel slide" data-ride="carousel" data-interval="false" id="carousel">
-                <div class="carousel-inner text-center">
-                    {% for image in images %}
-                        <div class="item {% if forloop.counter0 == 0 %}active{% endif %}">
-                            <a href="{{ image.image.url }}" class="fancybox-thumb" rel="fancybox-thumb"><img id="imageresource" src="{{ image.image.url }}" class="img-responsive center-block"/></a>
-                        </div>
-                    {% endfor %}
-                </div>
-                <div class="row">
-                    <a data-slide="prev" href="#carousel" class="left carousel-control hidden-xs"><i class="glyphicon glyphicon-chevron-left"></i></a>
-                    <ol class="carousel-indicators">
-                        {% for image in images %}
-                            <li data-target="#carousel" data-slide-to="{{ forloop.counter0 }}" class="{% if forloop.counter0 == 0 %} active {% endif %}"><img class="img-responsive " src="{{ image.image.url }}" alt=""></li>
-                        {% endfor %}
-                    </ol>
-                    <a data-slide="next" href="#carousel" class="right carousel-control hidden-xs"><i class="glyphicon glyphicon-chevron-right"></i></a>
-                </div>
-            </div>
+            {% include 'details/carousel.html' %}
         </div>
         <div class="col-md-4">
             <p><strong>{{ product.price_usd }} <span>$</span></strong></p>
@@ -56,6 +39,9 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="row">
+        {% include 'comment.html' %}
     </div>
 
 {% endblock %}

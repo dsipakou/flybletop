@@ -25,8 +25,12 @@
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right text-center collapse navbar-collapse">
-            {% if user.is_authenticated %}<li><a href="{% url 'logout' %}" class="align-right">Logout</a></li>
-            {% else %}<li><a href="{% url 'login' %}" class="align-right">Login</a></li>{% endif %}
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}" class="align-right">Logout</a></li>
+            {% else %}
+                <li><a href="{% url 'login' %}" class="align-right">Login</a></li>
+                <li><a href="{% url 'sign_up' %}" class="align-right">Sign Up</a></li>
+            {% endif %}
         </ul>
         <p>
             <form class="form-inline float-xs-right navbar-right hidden-xs align-middle">
