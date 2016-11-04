@@ -1,6 +1,9 @@
 from django import forms
 from django.contrib.auth.models import User
+from django.core.mail import send_mail
 from django.forms.utils import ErrorList
+
+from Flybletop import settings
 
 
 class SearchForm(forms.Form):
@@ -44,7 +47,6 @@ class RegistrationForm(forms.Form):
 
         return self.cleaned_data
 
-
     def save(self, data):
         u = User.objects.create_user(data['username'],
                                  data['email'],
@@ -52,3 +54,7 @@ class RegistrationForm(forms.Form):
         u.is_active = False
         u.save()
         return u
+
+    def sendEmail(self, data):
+        link = '{0}/activate/{1}'.format(settings.BASE_DIR, data['activation_key'])
+        send_mail(data['email_subject'], 'test message', 'mail@mail.te', [('mc.flyer@gmail.com')], fail_silently=False)

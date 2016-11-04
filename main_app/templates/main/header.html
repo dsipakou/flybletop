@@ -26,6 +26,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right text-center collapse navbar-collapse">
             {% if user.is_authenticated %}
+                <li><a href="{% url 'profile' %}" class="align-right link">My Profile</a></li>
                 <li><a href="{% url 'logout' %}" class="align-right">Logout</a></li>
             {% else %}
                 <li><a href="{% url 'login' %}" class="align-right">Login</a></li>

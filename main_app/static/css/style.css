@@ -142,3 +142,7 @@ div.catalog-item {
 form .alert {
     height: 30%;
 }
+
+.jumbotron {
+    background-color: white;
+}

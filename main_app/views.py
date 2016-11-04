@@ -1,8 +1,12 @@
+import hashlib
+import random
+
 from django.shortcuts import render
 from .models import Product, Like
 from .forms import SearchForm, LoginForm, RegistrationForm
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 import json
 
 
@@ -32,11 +36,17 @@ def signup_view(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            dd = {}
-            dd['username'] = form.cleaned_data['username']
-            dd['email'] = form.cleaned_data['email']
-            dd['password1'] = form.cleaned_data['password1']
-            form.save(dd)
+            data = {}
+            data['username'] = form.cleaned_data['username']
+            data['email'] = form.cleaned_data['email']
+            data['password1'] = form.cleaned_data['password1']
+            salt = hashlib.sha1(str(random.random()).encode('utf-8')).hexdigest()[:5]
+            usernamesalt = data['username']
+            data['activation_key'] = hashlib.sha1((salt+usernamesalt).encode('utf-8')).hexdigest()
+            data['email_path'] = '/ActivationEmail.txt'
+            data['email_subject'] = 'Activate your account on FlybleTop'
+            form.sendEmail(data)
+            form.save(data)
             return HttpResponseRedirect('/')
         else:
             return render(request, 'authentication/signup.html', {'form': form})
@@ -45,6 +55,7 @@ def signup_view(request):
         return render(request, 'authentication/signup.html', {'form': form})
 
 
+@login_required
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect('/')
@@ -79,6 +90,15 @@ def detail(request, product_id):
         'like': like
     }
     return render(request, 'details/detail.html', context)
+
+
+@login_required
+def profile(request):
+    products = Product.objects.filter(product_id__like_type=2, product_id__user=request.user.id)
+    context = {
+        'products': products
+    }
+    return render(request, 'user/profile.html', context)
 
 
 def insert(request):
