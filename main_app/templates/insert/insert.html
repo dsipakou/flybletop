@@ -6,7 +6,7 @@
         {% for insert in inserts %}
             <div class="col-md-6 col-sm-6 col-xs-12 col-lg-4 catalog-item">
                 <div class="panel">
-                    <a href="{{ insert.id }}">
+                    <a href="{{ insert.slug }}">
                         <div class="panel-heading">
                             <img src="{{ insert.base_image.url }}" />
                         </div>
@@ -24,7 +24,4 @@
         {% endfor %}
         </div>
     </div>
-    {% if user.is_authenticated %}
-        залогинился! о
-    {% endif %}
 {% endblock %}

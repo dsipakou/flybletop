@@ -18,18 +18,15 @@
             <p>{{ product.desc }}</p>
             <p>
             {% if user.is_authenticated %}
-                <button class="btn btn-xs {% if fav %} btn-warning {% else %} btn-secondary {% endif %} favorite-button" type="button" data-id="{{ product.id }}">
-                    <i class="fa fa-star"></i>
+                <button class="btn btn-sm {% if fav %} btn-warning {% else %} btn-secondary {% endif %} favorite-button" type="button" data-id="{{ product.id }}">
+                    <i class="fa fa-star fa-2x"></i>
                 </button>
             {% endif %}
-            <button data-toggle="tooltip" class="btn btn-xs {% if like %} btn-danger {% else %} btn-secondary {% endif %} like-button" type="button" data-id="{{ product.id }}">
-                <i class="fa fa-heart"></i>  <small>{% if likes > 0 %}{{ likes }}{% endif %}</small>
+            <button data-toggle="tooltip" class="btn btn-sm {% if like %} btn-danger {% else %} btn-secondary {% endif %} like-button" type="button" data-id="{{ product.id }}">
+                <i class="fa fa-heart fa-2x"></i>  <small>{% if likes > 0 %}{{ likes }}{% endif %}</small>
                 </button>
             </p>
-
         </div>
-
-
         <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -43,5 +40,4 @@
     <div class="row">
         {% include 'comment.html' %}
     </div>
-
 {% endblock %}

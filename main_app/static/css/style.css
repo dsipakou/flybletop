@@ -1,3 +1,7 @@
+body {
+    min-height: 100%;
+}
+
 h1 {
     color: green;
 }
@@ -26,9 +30,10 @@ h1 {
     cursor: default;
 }
 
-.btn.favorite-button, .btn.like-button, .btn.favorite-button:active, .btn.like-button:active {
-    border-radius: 15px;
+.btn.favorite-button, .btn.like-button, .btn.favorite-button:active, .btn.like-button:active, .btn.favorite-button:hover, .btn.like-button:hover {
+    border-radius: 40px;
     outline: none;
+    border: none;
 }
 
 a.carousel-control{
@@ -97,15 +102,45 @@ div.catalog-item {
 }
 
 #Carousel .item > img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-width: 100%;
-    height: 32rem;
+  position: absolute;
+  top: 0;
+  height: auto;
+    min-height: 32rem;
+  width: 100%;
+    display: flex;
+    align-items: center;
+       justify-content: center
 }
 
-#Carousel .container {
-    z-index: 10;
+#Carousel .item {
+    height: 32rem;
+    background-color: #777;
+    overflow: hidden;
+}
+
+#Carousel .carousel-control {
+    height: 100%;
+    opacity: 0.9;
+}
+
+#Carousel .carousel-control.left {
+    background-image: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,1)),to(rgba(0,0,0,.0001)));
+    background-image: -webkit-linear-gradient(left,rgba(0,0,0,1) 0%,rgba(0,0,0,.0001) 100%);
+    background-image: -o-linear-gradient(left,rgba(0,0,0,1) 0%,rgba(0,0,0,.0001) 100%);
+    background-image: linear-gradient(to right,rgba(0,0,0,1) 0%,rgba(0,0,0,.0001) 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+}
+
+#Carousel .carousel-control.right {
+    right: 0;
+    left: auto;
+    background-image: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.0001)),to(rgba(0,0,0,1)));
+    background-image: -webkit-linear-gradient(left,rgba(0,0,0,.0001) 0%,rgba(0,0,0,1) 100%);
+    background-image: -o-linear-gradient(left,rgba(0,0,0,.0001) 0%,rgba(0,0,0,1) 100%);
+    background-image: linear-gradient(to right,rgba(0,0,0,.0001) 0%,rgba(0,0,0,1) 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
 }
 
 .modal-body {
@@ -145,4 +180,26 @@ form .alert {
 
 .jumbotron {
     background-color: white;
+}
+
+.carousel-caption {
+    position: absolute;
+    right: 15%;
+    bottom: 20px;
+    left: 15%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0,0,0,.6);
+}
+
+footer.panel-footer {
+    margin-top: 60px;
+    padding: 30px;
+    height: 100px;
+    bottom: 0;
+    width: 100%;
+    background-color: #18bc9c; !important;
 }

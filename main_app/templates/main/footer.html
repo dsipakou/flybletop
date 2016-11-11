@@ -1,7 +1,13 @@
 {% load staticfiles %}
 
 <footer class="panel-footer">
-    <div class="container">
-        test
+    <div class="container text text-lext">
+        <div class="col-md-4">
+            <p>© FlybleTop {% now 'Y' %}</p>
+        </div>
+        <div class="col-md-4">
+            <p>Follow us</p>
+            <p><a href="https://www.instagram.com/flybletop/"><img src="{% static 'images/instagram.png'  %}" alt=""></a></p>
+        </div>
     </div>
 </footer>

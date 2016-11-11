@@ -27,14 +27,14 @@
         <ul class="nav navbar-nav navbar-right text-center collapse navbar-collapse">
             {% if user.is_authenticated %}
                 <li><a href="{% url 'profile' %}" class="align-right link">My Profile</a></li>
-                <li><a href="{% url 'logout' %}" class="align-right">Logout</a></li>
+                <li><a href="{% url 'logout' %}?next={{ request.path }}" class="align-right">Logout</a></li>
             {% else %}
-                <li><a href="{% url 'login' %}" class="align-right">Login</a></li>
+                <li><a href="{% url 'login' %}?next={{ request.path }}" class="align-right">Login</a></li>
                 <li><a href="{% url 'sign_up' %}" class="align-right">Sign Up</a></li>
             {% endif %}
         </ul>
         <p>
-            <form class="form-inline float-xs-right navbar-right hidden-xs align-middle">
+            <form class="form-inline float-xs-right navbar-right hidden-xs hidden-sm align-middle">
                 <input class="form-control" type="text" placeholder="Search">
                 <button class="btn align-middle btn-success" type="submit">Search</button>
             </form>

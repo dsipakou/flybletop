@@ -1,12 +1,13 @@
 import hashlib
 import random
 
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from .models import Product, Like
 from .forms import SearchForm, LoginForm, RegistrationForm
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.utils.translation import ugettext_lazy as _
 import json
 
 
@@ -20,16 +21,22 @@ def login_view(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return HttpResponseRedirect('/')
+                    url = request.POST.get('next', request.GET.get('next', '/'))
+                    return HttpResponseRedirect(url)
                 else:
-                    form.add_error(None, 'User is not activated')
+                    form.add_error(None, _('User is not activated'))
                     return render(request, 'authentication/login.html', {'form': form})
             else:
                 form.add_error(None, 'Cannot login. Please, check your credentials.')
                 return render(request, 'authentication/login.html', {'form': form})
     else:
         form = LoginForm()
-        return render(request, 'authentication/login.html', {'form': form})
+        next = request.GET.get('next')
+        context = {
+            'form': form,
+            'next': next
+        }
+        return render(request, 'authentication/login.html', context)
 
 
 def signup_view(request):
@@ -45,9 +52,10 @@ def signup_view(request):
             data['activation_key'] = hashlib.sha1((salt+usernamesalt).encode('utf-8')).hexdigest()
             data['email_path'] = '/ActivationEmail.txt'
             data['email_subject'] = 'Activate your account on FlybleTop'
-            form.sendEmail(data)
+            #form.sendEmail(data)
             form.save(data)
-            return HttpResponseRedirect('/')
+            url = request.GET.get('next', '')
+            return HttpResponseRedirect(url)
         else:
             return render(request, 'authentication/signup.html', {'form': form})
     else:
@@ -58,7 +66,8 @@ def signup_view(request):
 @login_required
 def logout_view(request):
     logout(request)
-    return HttpResponseRedirect('/')
+    url = request.GET.get('next', '/')
+    return HttpResponseRedirect(url)
 
 
 def index(request):
@@ -71,12 +80,12 @@ def index(request):
     return render(request, 'index.html', context)
 
 
-def detail(request, product_id):
-    product = Product.objects.get(id=product_id)
+def detail(request, slug):
+    product = get_object_or_404(Product, slug=slug)
     fav = len(Like.objects.filter(product_id=product, user_id=request.user.id, like_type=2)) > 0
     base_template = 'insert/base.html' if product.get_type_display() == 'Insert' else 'accessory/base.html'
     images = product.images.all()
-    likes = len(Like.objects.filter(product_id=product_id, like_type=1))
+    likes = len(Like.objects.filter(product_id=product, like_type=1))
     if request.user.id is not None:
         like = len(Like.objects.filter(user_id=request.user.id, product_id=product, like_type=1)) > 0
     else:
