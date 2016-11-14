@@ -52,7 +52,7 @@ def signup_view(request):
             data['activation_key'] = hashlib.sha1((salt+usernamesalt).encode('utf-8')).hexdigest()
             data['email_path'] = '/ActivationEmail.txt'
             data['email_subject'] = 'Activate your account on FlybleTop'
-            #form.sendEmail(data)
+            form.sendEmail(data)
             form.save(data)
             url = request.GET.get('next', '')
             return HttpResponseRedirect(url)
@@ -148,12 +148,13 @@ def like_product(request):
     return HttpResponse(json.dumps(response_data), content_type='application/json')
 
 
+@login_required
 def favorite_product(request):
     response_data = {}
     product_id = request.POST.get('product_id', None)
     product = Product.objects.get(id=int(product_id))
     if product_id and product_id.isdigit():
-        fav = Like.objects.filter(user_id=request.user.id, product_id=product).first()
+        fav = Like.objects.filter(user_id=request.user.id, product_id=product, like_type=2).first()
         if fav:
             fav.delete()
             response_data['result'] = 'deleted'

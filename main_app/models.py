@@ -26,7 +26,7 @@ class Image(models.Model):
     image = models.ImageField(upload_to='images', default='media/default.png', )
 
     def __str__(self):
-        return self.name
+        return self.product.name
 
 
 class Like(models.Model):
