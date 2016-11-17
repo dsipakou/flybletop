@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Product, Image
+from modeltranslation.admin import TranslationAdmin
 
 
 class ImageAdminInline(admin.StackedInline):
@@ -8,9 +9,9 @@ class ImageAdminInline(admin.StackedInline):
     extra = 0
 
 
-class ProductAdmin(admin.ModelAdmin):
+class ProductAdmin(TranslationAdmin):
 
-    list_display = ('name', 'type', 'price_byn')
+    list_display = ('admin_image_tag', 'name', 'type', 'price_byn', )
 
     inlines = [ImageAdminInline, ]
 

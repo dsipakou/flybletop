@@ -31,7 +31,7 @@ $(document).ready(function() {
 	})
 
 	$("a.pop-up").on("click", function() {
-       $('#imagepreview').attr('src', $(this).find('#imageresource').attr('src'));
+       $('#imagepreview').attr('src', $(this).find('#imageresource').attr('data-url'));
        $('#imagemodal').modal('show');
 	});
 	

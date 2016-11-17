@@ -2,7 +2,7 @@
     <div class="carousel-inner text-center">
         {% for image in images %}
             <div class="item {% if forloop.counter0 == 0 %}active{% endif %}">
-                <a href="{{ image.image.url }}" class="fancybox-thumb" rel="fancybox-thumb"><img id="imageresource" src="{{ image.image.url }}" class="img-responsive center-block"/></a>
+                <a href="{{ image.image.url }}" class="fancybox-thumb" rel="fancybox-thumb"><img id="imageresource" class="img-responsive center-block" src="{{ image.image_preview.url }}" data-url="{{ image.image.url }}"/></a>
             </div>
         {% endfor %}
     </div>
