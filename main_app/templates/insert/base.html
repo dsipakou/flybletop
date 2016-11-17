@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block breadcrumb %}
     {{ block.super }}
-    <li><i class="glyphicon glyphicon-menu-right"></i><a href="{% url 'insert' %}">Insert</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'insert' %}">{% trans 'Inserts' %}</a></li>
 {% endblock %}

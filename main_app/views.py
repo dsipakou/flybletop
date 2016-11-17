@@ -72,10 +72,10 @@ def logout_view(request):
 
 def index(request):
     inserts = Product.objects.all()
-    form = SearchForm()
+    searchForm = SearchForm()
     context = {
         'inserts': inserts,
-        'form': form
+        'searchForm': searchForm
     }
     return render(request, 'index.html', context)
 

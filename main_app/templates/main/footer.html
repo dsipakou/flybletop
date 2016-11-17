@@ -1,13 +1,29 @@
 {% load staticfiles %}
+{% load i18n %}
 
 <footer class="panel-footer">
     <div class="container text text-lext">
         <div class="col-md-4">
             <p>© FlybleTop {% now 'Y' %}</p>
         </div>
-        <div class="col-md-4">
-            <p>Follow us</p>
-            <p><a href="https://www.instagram.com/flybletop/"><img src="{% static 'images/instagram.png'  %}" alt=""></a></p>
+        <div class="col-md-4 text-center">
+            <p>
+                <a class="pl-5" href="https://www.instagram.com/flybletop/"><img src="{% static 'images/instagram.png'  %}" alt=""></a>
+                <a class="pl-5" href="https://www.facebook.com/flybletop/"><img src="{% static 'images/facebook.png'  %}" alt=""></a>
+            </p>
+        </div>
+        <div class="col-md-4 text-center">
+            <form action="{% url 'set_language' %}" method="post" id="languageform" >{% csrf_token %}
+                <input name="next" type="hidden" value="{{ redirect_to }}" />
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+                {% for language in languages %}
+                    {% with 'images/'|add:language.code|add:'.png' as image_static %}
+                        <a href="#" class="pl-5" onclick="languageinput.value = '{{ language.code }}'; languageform.submit();"><img src="{% static image_static %}" alt=""></a>
+                    {% endwith %}
+                {% endfor %}
+                <input type="hidden" id="languageinput" name="language"/>
+            </form>
         </div>
     </div>
 </footer>

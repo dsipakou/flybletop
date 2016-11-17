@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load i18n %}
 
 <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
@@ -15,23 +16,26 @@
         </div>
         <ul class="nav navbar-nav text-center collapse navbar-collapse">
             <li>
-                <a href="/" class="active">Home</a>
+                <a href="/" class="active">{% trans 'Home' %}</a>
             </li>
             <li>
-                <a href="{% url 'insert' %}">Inserts</a>
+                <a href="{% url 'insert' %}">{% trans 'Inserts' %}</a>
             </li>
             <li>
-                <a href="{% url 'accessory' %}">Accessories</a>
+                <a href="{% url 'accessory' %}">{% trans 'Accessories' %}</a>
             </li>
         </ul>
-        <ul class="nav navbar-nav navbar-right text-center collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right text-center collapse navbar-collapse align-middle">
             {% if user.is_authenticated %}
-                <li><a href="{% url 'profile' %}" class="align-right link">My Profile</a></li>
-                <li><a href="{% url 'logout' %}?next={{ request.path }}" class="align-right">Logout</a></li>
+                <li><a href="{% url 'profile' %}" class="align-right link">{% trans 'My Profile' %}</a></li>
+                <li><a href="{% url 'logout' %}?next={{ request.path }}" class="align-right">{% trans 'Logout' %}</a></li>
             {% else %}
-                <li><a href="{% url 'login' %}?next={{ request.path }}" class="align-right">Login</a></li>
-                <li><a href="{% url 'sign_up' %}" class="align-right">Sign Up</a></li>
+                <li><a href="{% url 'login' %}?next={{ request.path }}" class="align-right">{% trans 'Login' %}</a></li>
+                <li><a href="{% url 'sign_up' %}" class="align-right">{% trans 'Sign Up' %}</a></li>
             {% endif %}
+            <li class="align-middle form-inline" style="height: 60px;">
+
+            </li>
         </ul>
         <p>
             <form class="form-inline float-xs-right navbar-right hidden-xs hidden-sm align-middle">

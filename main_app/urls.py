@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.conf import settings
 from django.views.static import serve
 from . import views
@@ -15,7 +15,7 @@ urlpatterns = [
     url(r'^accessory/$', views.accessory, name='accessory'),
     url(r'^favorite_product/$', views.favorite_product, name='favorite_product'),
     url(r'^like_product/$', views.like_product, name='like_product'),
-    url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT,})
+    url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT,}),
 ]
 
 if settings.DEBUG:

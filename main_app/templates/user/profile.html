@@ -6,8 +6,8 @@
         <div class="row">
             <h2>{% trans 'Hello' %}, {{ user.username }}!</h2>
             <p class="lead">{% if products|length > 0 %}
-                You have favorited following products{% else %}
-                You have not favorited any product yet, go to <a href="{% url 'insert' %}">Insert</a> or to <a href="{% url 'accessory' %}">Accessory</a> pages to select something
+                {% trans 'You have favorited following products' %}{% else %}
+                {% trans 'You have not favorited any product yet, go to' %} <a href="{% url 'insert' %}">{% trans 'Inserts' %}</a> {% trans 'or to' %} <a href="{% url 'accessory' %}">{% trans 'Accessories' %}</a> {% trans 'pages to select something' %}
             {% endif %}</p>
         </div>
     </section>
