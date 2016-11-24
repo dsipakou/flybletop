@@ -2,7 +2,7 @@ import hashlib
 import random
 
 from django.shortcuts import get_object_or_404, render
-from .models import Product, Like
+from .models import Product, Like, News
 from .forms import SearchForm, LoginForm, RegistrationForm
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
@@ -71,13 +71,13 @@ def logout_view(request):
 
 
 def index(request):
-    inserts = Product.objects.all()
+    news = News.objects.all()
     searchForm = SearchForm()
     context = {
-        'inserts': inserts,
+        'news': news,
         'searchForm': searchForm
     }
-    return render(request, 'index.html', context)
+    return render(request, 'main/index.html', context)
 
 
 def detail(request, slug):

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block breadcrumb %}
+
+{% endblock %}
+
+{% block index_carousel %}
+{% include 'main/carousel.html' %}
+<div class="container">
+    <hr class="divider">
+    {% for n in news %}
+    <div class="row">
+        {% if forloop.counter|divisibleby:"2" %}
+            <div class="col-md-5">
+                <img src="{{ n.image.url }}" alt="" />
+            </div>
+            <div class="col-md-7">
+                <h1>{{ n.title }}</h1>
+                {% autoescape off %}
+                <p>{{ n.body }}</p>
+                {% endautoescape %}
+            </div>
+        {% else %}
+            <div class="col-md-7">
+                <h1>{{ n.title }}</h1>
+                {% autoescape off %}
+                <p>{{ n.body }}</p>
+                {% endautoescape %}
+            </div>
+            <div class="col-md-5">
+                <img src="{{ n.image.url }}" alt="" />
+            </div>
+        {% endif %}
+    </div>
+    <hr class="divider">
+    {% endfor %}
+</div>
+{% endblock %}

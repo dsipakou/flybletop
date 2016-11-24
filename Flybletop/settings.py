@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'imagekit',
+    'ckeditor'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -150,3 +151,15 @@ EMAIL_HOST = 'smtp.mail.yahoo.com'
 
 # Port for sending e-mail.
 EMAIL_PORT = 465
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['Format'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source']
+        ]
+    }
+}
