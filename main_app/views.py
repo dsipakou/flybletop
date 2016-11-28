@@ -8,6 +8,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext_lazy as _
+from django.utils import translation
 import json
 
 
@@ -71,10 +72,12 @@ def logout_view(request):
 
 
 def index(request):
-    news = News.objects.all()
+    news = News.objects.filter(carousel=False)
+    carousel = News.objects.filter(carousel=True)
     searchForm = SearchForm()
     context = {
         'news': news,
+        'carousel': carousel,
         'searchForm': searchForm
     }
     return render(request, 'main/index.html', context)
@@ -83,7 +86,7 @@ def index(request):
 def detail(request, slug):
     product = get_object_or_404(Product, slug=slug)
     fav = len(Like.objects.filter(product_id=product, user_id=request.user.id, like_type=2)) > 0
-    base_template = 'insert/base.html' if product.get_type_display() == 'Insert' else 'accessory/base.html'
+    base_template = 'insert/base.html' if product.type == 1 else 'accessory/base.html'
     images = product.images.all()
     likes = len(Like.objects.filter(product_id=product, like_type=1))
     if request.user.id is not None:
@@ -104,8 +107,10 @@ def detail(request, slug):
 @login_required
 def profile(request):
     products = Product.objects.filter(product_id__like_type=2, product_id__user=request.user.id)
+    types = {'1': 'insert', '2': 'accessory'}
     context = {
-        'products': products
+        'products': products,
+        'types': types
     }
     return render(request, 'user/profile.html', context)
 

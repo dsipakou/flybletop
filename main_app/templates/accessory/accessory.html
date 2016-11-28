@@ -4,21 +4,23 @@
     <div class="content">
         <div class="row">
         {% for acc in accs %}
-            <div class="col-md-4">
-                <div class="panel panel-group">
-                    <div class="panel-heading">
-                        <a href="{{ acc.slug }}">
-                            <h2 class="panel-title"> {{ acc.name }}</h2>
-                        </a>
-                    </div>
+            <div class="col-md-6 col-sm-6 col-xs-12 col-lg-4 catalog-item">
+                <div class="panel">
+                    <a href="{{ acc.slug }}">
+                        <div class="panel-heading">
+                            <img src="{{ acc.base_image.url }}" />
+                        </div>
+                        <div class="panel-heading">
+                            <h2 class="panel-title text-info"> {{ acc.name }}</h2>
+                        </div>
+                    </a>
                     <div class="panel-body">
-                        {{ acc.desc }}
+                        <p>{{ acc.desc }}</p>
+                        <p><strong>{{ acc.price_usd }} <span>$</span></strong></p>
                     </div>
                 </div>
             </div>
-            {% if forloop.counter|divisibleby:"3" %}
-                </div><div class="row">
-            {% endif %}
+
         {% endfor %}
         </div>
     </div>

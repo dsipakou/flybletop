@@ -16,8 +16,11 @@
         {% for product in products %}
             <div class="col-md-6 col-sm-6 col-xs-12 col-lg-4 catalog-item">
                 <div class="panel">
-                    {% with temp=product.get_type_display.lower %}
-                    <a href="{% url temp %}{{ product.slug }}">
+                    {% if product.type == 1 %}
+                    <a href="{% url types.1 %}{{ product.slug }}">
+                    {% else %}
+                    <a href="{% url types.2 %}{{ product.slug }}">
+                    {% endif %}
                         <div class="panel-heading">
                             <img src="{{ product.base_image.url }}" />
                         </div>
@@ -25,7 +28,6 @@
                             <h2 class="panel-title text-info"> {{ product.name }}</h2>
                         </div>
                     </a>
-                    {% endwith %}
                     <div class="panel-body">
                         <p>{{ product.desc }}</p>
                         <p><strong>{{ product.price_usd }} <span>$</span></strong></p>

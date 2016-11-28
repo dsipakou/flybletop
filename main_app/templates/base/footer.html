@@ -8,8 +8,9 @@
         </div>
         <div class="col-md-4 text-center">
             <p>
-                <a class="pl-5" href="https://www.instagram.com/flybletop/"><img src="{% static 'images/instagram.png'  %}" alt=""></a>
-                <a class="pl-5" href="https://www.facebook.com/flybletop/"><img src="{% static 'images/facebook.png'  %}" alt=""></a>
+                {% for social in social_contact %}
+                    <a class="pl-5" href="{{ social.url }}"><img src="{{ social.image.url }}" alt=""></a>
+                {% endfor %}
             </p>
         </div>
         <div class="col-md-4 text-center">
