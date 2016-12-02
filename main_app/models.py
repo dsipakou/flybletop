@@ -75,14 +75,14 @@ class News(models.Model):
     carousel = models.BooleanField(default=False, verbose_name=_('News|carousel'))
     image = ProcessedImageField(upload_to='images/base',
                                 processors=[Resize(800, 600, False)],
-                                format='PNG',
+                                format='JPEG',
                                 verbose_name=_('News|image'))
     cropped_image = ImageSpecField(source='image',
                                    processors=[Crop(400, 400)],
-                                   format='PNG')
+                                   format='JPEG')
     image_thumbnail = ImageSpecField(source='image',
                                      processors=[ResizeToCover(100, 100)],
-                                     format='PNG',)
+                                     format='JPEG',)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('News|created'))
     updated_at = models.DateTimeField(auto_now=True, verbose_name=_('News|updated'))
 
@@ -124,8 +124,8 @@ class Like(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, related_name='profile')
-    activation_key = models.CharField(max_length=40)
-    key_expires = models.DateTimeField()
+    activation_key = models.CharField(max_length=40, null=True)
+    key_expires = models.DateTimeField(null=True)
 
     def __str__(self):
         return self.name

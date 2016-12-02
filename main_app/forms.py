@@ -1,9 +1,10 @@
 from django import forms
-from django.contrib.auth.models import User
-from django.core.mail import send_mail
-from django.forms.utils import ErrorList
-
 from Flybletop import settings
+from django.contrib.auth.models import User
+from django.forms.utils import ErrorList
+from django.utils.translation import ugettext_lazy as _
+
+from main_app.models import Profile
 
 
 class SearchForm(forms.Form):
@@ -48,13 +49,28 @@ class RegistrationForm(forms.Form):
         return self.cleaned_data
 
     def save(self, data):
-        u = User.objects.create_user(data['username'],
-                                 data['email'],
-                                 data['password1'])
-        u.is_active = False
+        u = User.objects.create_user(data['username'], data['email'], data['password1'])
         u.save()
+        profile = Profile()
+        profile.user = u
+        profile.save()
         return u
 
-    def sendEmail(self, data):
-        link = '{0}/activate/{1}'.format(settings.BASE_DIR, data['activation_key'])
-        send_mail(data['email_subject'], 'test message', 'mail@mail.te', [('mc.flyer@gmail.com')], fail_silently=False)
+
+class RecoveryForm(forms.Form):
+    email = forms.EmailField(label="", widget=forms.EmailInput(
+        attrs={'placeholder': 'Your E-mail', 'class': 'form-control'}), max_length=100,
+                             error_messages={'invalid': "Invalid e-mail"})
+
+    def clean(self):
+        email = self.cleaned_data.get('email')
+        if len(User.objects.filter(email=email)) == 0:
+            self._errors['email'] = ErrorList([_('We have no such e-mail address in our database')])
+
+        return self.cleaned_data
+
+    def send_email(self, data):
+        user = User.objects.filter(email=data['email'])[0]
+        profile = Profile.objects.filter(user=user)[0]
+
+        link = settings.BASE_DIR

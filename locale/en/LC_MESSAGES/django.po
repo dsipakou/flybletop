@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-25 16:22+0300\n"
+"POT-Creation-Date: 2016-12-02 16:51+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,6 +20,10 @@ msgstr ""
 #: .\main_app\apps.py:7
 msgid "MainApp|name"
 msgstr "Main application"
+
+#: .\main_app\forms.py:67
+msgid "We have no such e-mail address in our database"
+msgstr ""
 
 #: .\main_app\models.py:15
 msgid "Product|Insert"
@@ -175,13 +179,25 @@ msgstr "Contacts"
 msgid "Accessories"
 msgstr ""
 
-#: .\main_app\templates\accessory\base_site.html:3
+#: .\main_app\templates\admin\base_site.html:3
 msgid "Django site admin"
 msgstr "FlybleTop site admin"
 
-#: .\main_app\templates\accessory\base_site.html:6
+#: .\main_app\templates\admin\base_site.html:6
 msgid "Django administration"
 msgstr "FlybleTop administration"
+
+#: .\main_app\templates\authentication\login.html:35
+msgid "Forget password?"
+msgstr ""
+
+#: .\main_app\templates\authentication\registered.html:11
+msgid "Your registration successfully completed!"
+msgstr ""
+
+#: .\main_app\templates\authentication\registered.html:12
+msgid "Now you can login and favorite any product."
+msgstr ""
 
 #: .\main_app\templates\base.html:32 .\main_app\templates\base\header.html:19
 msgid "Home"
@@ -230,6 +246,10 @@ msgstr ""
 msgid "pages to select something"
 msgstr ""
 
-#: .\main_app\views.py:28
+#: .\main_app\views.py:26
 msgid "User is not activated"
 msgstr ""
+
+#: .\main_app\views.py:65
+msgid "check e-mail"
+msgstr "Please, check your e-mail for recovery link"

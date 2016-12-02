@@ -3,12 +3,13 @@ import random
 
 from django.shortcuts import get_object_or_404, render
 from .models import Product, Like, News
-from .forms import SearchForm, LoginForm, RegistrationForm
+from .forms import SearchForm, LoginForm, RegistrationForm, RecoveryForm
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.template import loader
 from django.utils.translation import ugettext_lazy as _
-from django.utils import translation
+
 import json
 
 
@@ -48,20 +49,38 @@ def signup_view(request):
             data['username'] = form.cleaned_data['username']
             data['email'] = form.cleaned_data['email']
             data['password1'] = form.cleaned_data['password1']
-            salt = hashlib.sha1(str(random.random()).encode('utf-8')).hexdigest()[:5]
-            usernamesalt = data['username']
-            data['activation_key'] = hashlib.sha1((salt+usernamesalt).encode('utf-8')).hexdigest()
-            data['email_path'] = '/ActivationEmail.txt'
-            data['email_subject'] = 'Activate your account on FlybleTop'
-            form.sendEmail(data)
             form.save(data)
-            url = request.GET.get('next', '')
-            return HttpResponseRedirect(url)
+            template = loader.get_template('authentication/registered.html')
+            return HttpResponse(template.render())
         else:
             return render(request, 'authentication/signup.html', {'form': form})
     else:
         form = RegistrationForm()
         return render(request, 'authentication/signup.html', {'form': form})
+
+
+def recovery(request):
+    if request.method == 'POST':
+        form = RecoveryForm(request.POST)
+        if form.is_valid():
+            context = {}
+            data = {}
+            data['email'] = form.cleaned_data['email']
+            rand_name = str(random.random()).encode('utf8')
+            salt = hashlib.sha1(rand_name).hexdigest()[:5]
+            usernamesalt = data['email'] + salt
+            data['activation_key'] = hashlib.sha1(usernamesalt.encode('utf8')).hexdigest()
+            data['email_body'] = _('test email body')
+            data['email_subject'] = _('Password reset email')
+            form.send_email(data)
+            context['form'] = form
+            context['message'] = _('check e-mail')
+            return render(request, 'authentication/recovery.html', context)
+        else:
+            return render(request, 'authentication/signup.html', {'form': form})
+    else:
+        form = RecoveryForm()
+        return render(request, 'authentication/recovery.html', {'form': form})
 
 
 @login_required
@@ -80,6 +99,7 @@ def index(request):
         'carousel': carousel,
         'searchForm': searchForm
     }
+
     return render(request, 'main/index.html', context)
 
 

@@ -164,3 +164,10 @@ CKEDITOR_CONFIGS = {
         ]
     }
 }
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'flybletop@gmail.com'
+EMAIL_HOST_PASSWORD = 'tspzkynysrcyvcxz'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
