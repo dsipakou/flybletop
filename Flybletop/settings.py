@@ -147,12 +147,6 @@ LOGIN_URL = 'login'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-# Host for sending e-mail.
-EMAIL_HOST = 'smtp.mail.yahoo.com'
-
-# Port for sending e-mail.
-EMAIL_PORT = 465
-
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'Custom',

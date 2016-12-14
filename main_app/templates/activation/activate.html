@@ -1,0 +1,37 @@
+{% extends 'activation/base.html' %}
+{% load i18n %}
+
+{% block breadcrumb %}
+{% endblock %}
+
+
+{% block content %}
+    {% if form %}
+        <form action="." method="post">
+            {% csrf_token %}
+            <div class="container">
+                <div class="col-md-6 col-md-offset-3 col-sm-offset-2 col-sm-8 col-xs-offset-1 col-xs-10 panel panel-group">
+                    {% for field in form %}
+                    <p>
+                        <div class="{% if field.errors|length > 0 %}has-error{% endif %}">{{ field }}</div>
+                        {% for error in field.errors %}
+                            <strong class="text-danger">{{ error|escape }}</strong>
+                        {% endfor %}
+                    </p>
+                {% endfor %}
+                    <p>
+                        <button type="submit" class="btn btn-success btn-block">{% trans 'Activate' %}</button>
+                    </p>
+                </div>
+            </div>
+        </form>
+    {% else %}
+        {% if success %}
+            <section class="jumbotron text-center">
+                <div class="row">
+                    <h2>{% trans 'You have successfully registered your product!' %}</h2>
+                </div>
+            </section>
+        {% endif %}
+    {% endif %}
+{% endblock %}

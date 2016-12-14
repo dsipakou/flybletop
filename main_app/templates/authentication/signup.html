@@ -1,25 +1,42 @@
 {% extends 'base.html' %}
+
 {% load staticfiles %}
+{% load i18n %}
+
+{% block header %}
+    {% include 'authentication/auth_links.html' with next=next %}
+{% endblock %}
 
 {% block breadcrumb %}
 {% endblock %}
 
 {% block content %}
-<form method="post" action=".">
+    {% if next %}
+        <form method="post" action="/signup/?next={{ next }}">
+    {% else %}
+        <form method="post" action="/signup/">
+    {% endif %}
     {% csrf_token %}
     <div class="container">
-        <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-6 panel panel-group">
+        <div class="col-md-6 col-md-offset-3 col-sm-offset-2 col-sm-8 col-xs-offset-1 col-xs-10 panel panel-group">
             {% for field in form %}
                 <p>
                     <div class="{% if field.errors|length > 0 %}has-error{% endif %}">{{ field }}</div>
                     {% for error in field.errors %}
-                        <small class="text-danger">
-                            {{ error|escape }}
-                        </small>
+                        <strong class="text-danger">{{ error|escape }}</strong>
                     {% endfor %}
                 </p>
             {% endfor %}
-            <p><input type="submit" value="Submit" class="btn btn-success"/></p>
+            <p>
+                <input type="submit" value="Submit" class="btn btn-success btn-block"/>
+            </p>
+            <p>
+                {% if next %}
+                    <strong><a href="{% url 'login' %}?next={{ next }}" class="btn btn-link center-block">{% trans 'Have an account?' %}</a></strong>
+                {% else %}
+                    <strong><a href="{% url 'login' %}" class="btn btn-link center-block">{% trans 'Have an account?' %}</a></strong>
+                {% endif %}
+            </p>
         </div>
     </div>
 </form>

@@ -1,0 +1,12 @@
+{% extends 'base/header.html' %}
+{% load i18n %}
+
+{% block auth_links %}
+    {% if next %}
+        <li><a href="{% url 'login' %}?next={{ next }}" class="align-right">{% trans 'Login' %}</a></li>
+        <li><a href="{% url 'sign_up'%}?next={{ next }}" class="align-right">{% trans 'Sign Up' %}</a></li>
+    {% else %}
+        <li><a href="{% url 'login' %}" class="align-right">{% trans 'Login' %}</a></li>
+        <li><a href="{% url 'sign_up'%}" class="align-right">{% trans 'Sign Up' %}</a></li>
+    {% endif %}
+{% endblock %}

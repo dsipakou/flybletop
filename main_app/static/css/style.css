@@ -11,8 +11,16 @@ h1 {
     color: green;
 }
 
+small {
+    font-size: 0.7em;
+}
+
 .pt-2 {
     padding-top: 2px;
+}
+
+.pt-5 {
+    padding-top: 5px;
 }
 
 .pl-5 {
@@ -229,8 +237,23 @@ form .alert {
 footer.panel-footer {
     margin-top: 60px;
     padding: 30px;
-    height: 100px;
     bottom: 0;
     width: 100%;
     background-color: #18bc9c; !important;
+}
+
+footer a, footer a:hover {
+    color: white;
+    font-weight: 500;
+}
+
+footer h4 {
+    color: #0a4b3e;
+}
+
+footer.dark {
+    background-color: #0a4b3e; !important;
+    color: white;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }

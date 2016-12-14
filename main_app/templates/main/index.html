@@ -3,7 +3,10 @@
 {% load i18n %}
 
 {% block breadcrumb %}
+{% endblock %}
 
+{% block header %}
+    {% include 'authentication/auth_links.html' %}
 {% endblock %}
 
 {% block index_carousel %}
@@ -18,13 +21,13 @@
             </div>
             <div class="col-md-7">
                 {% autoescape off %}
-                <p>{{ n.body }}</p>
+                <p class="lead">{{ n.body }}</p>
                 {% endautoescape %}
             </div>
         {% else %}
             <div class="col-md-7">
                 {% autoescape off %}
-                <p>{{ n.body }}</p>
+                <p class="lead">{{ n.body }}</p>
                 {% endautoescape %}
             </div>
             <div class="col-md-5">

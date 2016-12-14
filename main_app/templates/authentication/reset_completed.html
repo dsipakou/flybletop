@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block breadcrumb %}
+{% endblock %}
+
+{% block content %}
+    <section class="jumbotron text-center">
+        <div class="row">
+            <h2>{% trans 'You have successfully updated your password!' %}</h2>
+            <p>{% trans 'Now you can do login with your new password' %}</p>
+        </div>
+    </section>
+{% endblock %}

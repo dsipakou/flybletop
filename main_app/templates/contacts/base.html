@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block breadcrumb %}
+    {{ block.super }}
+    <li class="breadcrumb-item"><a href="{% url 'contacts' %}">{% trans 'Contacts' %}</a></li>
+{% endblock %}

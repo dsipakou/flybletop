@@ -1,5 +1,5 @@
 from modeltranslation.translator import register, TranslationOptions
-from .models import Product, News, Contact
+from .models import Product, News, Contact, AccessCode
 
 
 @register(Product)
@@ -15,3 +15,8 @@ class NewsTranslationOptions(TranslationOptions):
 @register(Contact)
 class ContactTranslationOptions(TranslationOptions):
     fields = ('title', )
+
+
+@register(AccessCode)
+class AccessCodeTranslationOptions(TranslationOptions):
+    fields = ()

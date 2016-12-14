@@ -2,29 +2,38 @@
 {% load i18n %}
 
 <footer class="panel-footer">
-    <div class="container text text-lext">
+    <div class="container text text-left">
         <div class="col-md-4">
-            <p>© FlybleTop {% now 'Y' %}</p>
+            <h4><strong>{% trans 'Pages' %}</strong></h4>
+            <hr class="nav-divider" />
+            <ul class="list-unstyled">
+                <li><a href="{% url 'index' %}">{% trans 'Home' %}</a></li>
+                <li><a href="{% url 'insert' %}">{% trans 'Inserts' %}</a></li>
+                <li><a href="{% url 'accessory' %}">{% trans 'Accessories' %}</a></li>
+                <li><a href="{% url 'contacts' %}">{% trans 'Contacts' %}</a></li>
+            </ul>
         </div>
-        <div class="col-md-4 text-center">
-            <p>
+        <div class="col-md-4">
+            <h4><strong>{% trans 'Follow Us' %}</strong></h4>
+            <hr class="divider" />
                 {% for social in social_contact %}
                     <a class="pl-5" href="{{ social.url }}"><img src="{{ social.image.url }}" alt=""></a>
                 {% endfor %}
-            </p>
+
         </div>
-        <div class="col-md-4 text-center">
-            <form action="{% url 'set_language' %}" method="post" id="languageform" >{% csrf_token %}
-                <input name="next" type="hidden" value="{{ redirect_to }}" />
-                {% get_available_languages as LANGUAGES %}
-                {% get_language_info_list for LANGUAGES as languages %}
-                {% for language in languages %}
-                    {% with 'images/'|add:language.code|add:'.png' as image_static %}
-                        <a href="#" class="pl-5" onclick="languageinput.value = '{{ language.code }}'; languageform.submit();"><img src="{% static image_static %}" alt=""></a>
-                    {% endwith %}
-                {% endfor %}
-                <input type="hidden" id="languageinput" name="language"/>
-            </form>
+        <div class="col-md-4">
+            <h4><strong>{% trans 'Contact Us' %}</strong></h4>
+            <hr class="divider" />
+            <p><a href="mailto:flybletop@gmail.com">flybletop@gmail.com</a></p>
         </div>
+    </div>
+
+</footer>
+<footer class="dark">
+    <div class="container text text-left">
+        <div class="col-md-6">
+            <p>© FlybleTop {% now 'Y' %}</p>
+        </div>
+        <div class="col-md-6 text-right blockquote-footer"><small class="text-muted">from Belarus with <i class="fa fa-heart" style="color: #cd2a19;"></i></small></div>
     </div>
 </footer>

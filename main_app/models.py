@@ -1,10 +1,17 @@
+import qrcode
+import random
+from io import BytesIO
+from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import pre_save
 from django.utils.html import strip_tags
 from django.utils.text import slugify
+from django.urls import reverse
 from imagekit.models import ProcessedImageField, ImageSpecField
 from imagekit.processors import ResizeToFit, ResizeToCover, Crop, Resize
+
+from Flybletop.settings import BASE_DIR
 from helpers.watermark import ImageWatermark
 from ckeditor.fields import RichTextField
 from django.utils.translation import ugettext_lazy as _
@@ -16,7 +23,7 @@ class Product(models.Model):
         (2, _('Product|Accessory'))
     )
     name = models.CharField(max_length=40, verbose_name=_('Product|name'))
-    slug = models.SlugField(unique=True, null=True, blank=True, verbose_name=_('Product|slug'))
+    slug = models.SlugField(unique=True, blank=True, verbose_name=_('Product|slug'))
     desc = models.TextField(verbose_name=_('Product|desc'))
     type = models.IntegerField(choices=TYPES, verbose_name=_('Product|type'))
     price_byn = models.DecimalField(max_digits=5, decimal_places=2, verbose_name=_('Product|BYN'))
@@ -28,12 +35,12 @@ class Product(models.Model):
                                      verbose_name=_("Product|base_image"))
     base_image_thumbnail = ImageSpecField(source='base_image',
                                           processors=[ResizeToCover(100, 50)],
-                                          format='PNG',)
+                                          format='PNG', )
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('Product|created_at'))
     updated_at = models.DateTimeField(auto_now=True, verbose_name=_('Product|updated_at'))
 
     class Meta:
-        verbose_name=_('Product')
+        verbose_name = _('Product')
         verbose_name_plural = _('Product|plural')
 
     def __str__(self):
@@ -82,7 +89,7 @@ class News(models.Model):
                                    format='JPEG')
     image_thumbnail = ImageSpecField(source='image',
                                      processors=[ResizeToCover(100, 100)],
-                                     format='JPEG',)
+                                     format='JPEG', )
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('News|created'))
     updated_at = models.DateTimeField(auto_now=True, verbose_name=_('News|updated'))
 
@@ -128,7 +135,7 @@ class Profile(models.Model):
     key_expires = models.DateTimeField(null=True)
 
     def __str__(self):
-        return self.name
+        return self.user.first_name
 
 
 class Contact(models.Model):
@@ -162,7 +169,37 @@ class Contact(models.Model):
     admin_image.short_description = _('Contact|image')
 
 
-def create_slug(instance, new_slug=None):
+class AccessCode(models.Model):
+    product = models.ForeignKey(Product, related_name='accesscode', verbose_name=_('Product|AccessCode'))
+    code = models.CharField(max_length=40, unique=True, blank=True, verbose_name=_('AccessCode|code'))
+    usage = models.BooleanField(default=False, verbose_name=_('AccessCode|usage'))
+    qrcode = models.ImageField(upload_to='qrcode', blank=True, null=True, verbose_name=_('AccessCode|qrcode'))
+    user = models.ForeignKey(User, related_name='user', verbose_name=('AccessCode|user'), null=True, blank=True)
+
+    def generate_qrcode(self):
+        qr = qrcode.QRCode(version=1, box_size=6, border=0)
+        qr.add_data(self.code)
+        qr.make(fit=True)
+        img = qr.make_image()
+        buffer = BytesIO()
+        img.save(buffer)
+        filename = 'qr-%s.png' % (self.id)
+        filebuffer = InMemoryUploadedFile(buffer, None, filename, 'image/png', buffer.__sizeof__(), None)
+        self.qrcode.save(filename, filebuffer, False)
+
+    def admin_image(self):
+        return u'<img src="%s" />' % self.qrcode.url
+
+    def save(self, generate_qr=True, *args, **kwargs):
+        if generate_qr:
+            self.generate_qrcode()
+        super(AccessCode, self).save(*args, **kwargs)
+
+    admin_image.allow_tags = True
+    admin_image.short_description = _('AccessCode|image')
+
+
+def _create_slug(instance, new_slug=None):
     slug = slugify(instance.name_en)
     if new_slug is not None:
         slug = new_slug
@@ -170,15 +207,27 @@ def create_slug(instance, new_slug=None):
     exists = qs.exists()
     if exists:
         new_slug = "%s-%s" % (slug, qs.first().id)
-        return create_slug(instance, new_slug=new_slug)
+        return _create_slug(instance, new_slug=new_slug)
     return slug
+
+
+def _create_access_code():
+    num = '%s-%s-%s' % (random.randint(1000, 9990), random.randint(1000, 9990), random.randint(1000, 9990))
+    check = AccessCode.objects.filter(code=num)
+    if check.exists():
+        return _create_access_code()
+    return num
 
 
 def pre_save_product_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
-        instance.slug = create_slug(instance)
+        instance.slug = _create_slug(instance)
+
+
+def pre_save_accesscode_receiver(sender, instance, *args, **kwargs):
+    if not instance.code:
+        instance.code = _create_access_code()
+
 
 pre_save.connect(pre_save_product_receiver, sender=Product)
-
-
-
+pre_save.connect(pre_save_accesscode_receiver, sender=AccessCode)

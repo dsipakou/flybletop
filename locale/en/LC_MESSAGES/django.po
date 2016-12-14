@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-02 16:51+0300\n"
+"POT-Creation-Date: 2016-12-14 18:46+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,163 +21,238 @@ msgstr ""
 msgid "MainApp|name"
 msgstr "Main application"
 
-#: .\main_app\forms.py:67
+#: .\main_app\forms.py:21
+msgid "ActivationCode"
+msgstr "Activation code"
+
+#: .\main_app\forms.py:26 .\main_app\forms.py:36
+msgid "Email"
+msgstr ""
+
+#: .\main_app\forms.py:27 .\main_app\forms.py:37 .\main_app\forms.py:74
+msgid "Invalid e-mail"
+msgstr ""
+
+#: .\main_app\forms.py:29 .\main_app\forms.py:40 .\main_app\forms.py:95
+msgid "Password"
+msgstr ""
+
+#: .\main_app\forms.py:34
+msgid "Username"
+msgstr ""
+
+#: .\main_app\forms.py:42
+msgid "Confirm a password"
+msgstr ""
+
+#: .\main_app\forms.py:48
+msgid "Given username is already in use"
+msgstr ""
+
+#: .\main_app\forms.py:51
+msgid "Given email address is already in use"
+msgstr ""
+
+#: .\main_app\forms.py:58 .\main_app\forms.py:107
+msgid "Passwords are not equal"
+msgstr ""
+
+#: .\main_app\forms.py:73
+msgid "Your E-mail"
+msgstr ""
+
+#: .\main_app\forms.py:79
 msgid "We have no such e-mail address in our database"
 msgstr ""
 
-#: .\main_app\models.py:15
+#: .\main_app\models.py:19
 msgid "Product|Insert"
 msgstr "Insert"
 
-#: .\main_app\models.py:16
+#: .\main_app\models.py:20
 msgid "Product|Accessory"
 msgstr "Accessory"
 
-#: .\main_app\models.py:18
+#: .\main_app\models.py:22
 msgid "Product|name"
 msgstr "Name"
 
-#: .\main_app\models.py:19
+#: .\main_app\models.py:23
 msgid "Product|slug"
 msgstr "Slug"
 
-#: .\main_app\models.py:20
+#: .\main_app\models.py:24
 msgid "Product|desc"
 msgstr "Description"
 
-#: .\main_app\models.py:21
+#: .\main_app\models.py:25
 msgid "Product|type"
 msgstr "Type"
 
-#: .\main_app\models.py:22
+#: .\main_app\models.py:26
 msgid "Product|BYN"
 msgstr "BYN"
 
-#: .\main_app\models.py:23
+#: .\main_app\models.py:27
 msgid "Product|USD"
 msgstr "USD"
 
-#: .\main_app\models.py:28
+#: .\main_app\models.py:32
 msgid "Product|base_image"
 msgstr "Base image"
 
-#: .\main_app\models.py:32
+#: .\main_app\models.py:36
 msgid "Product|created_at"
 msgstr "Created"
 
-#: .\main_app\models.py:33
+#: .\main_app\models.py:37
 msgid "Product|updated_at"
 msgstr "Updated"
 
-#: .\main_app\models.py:36
+#: .\main_app\models.py:40
 msgid "Product"
 msgstr "Product"
 
-#: .\main_app\models.py:37
+#: .\main_app\models.py:41
 msgid "Product|plural"
 msgstr "Products"
 
-#: .\main_app\models.py:46
+#: .\main_app\models.py:50
 msgid "Product|image"
 msgstr "Image"
 
-#: .\main_app\models.py:50
+#: .\main_app\models.py:54
 msgid "ProductImage|name"
 msgstr "Product name"
 
-#: .\main_app\models.py:60
+#: .\main_app\models.py:64
 msgid "ProductImage|image"
 msgstr "Image"
 
-#: .\main_app\models.py:66
+#: .\main_app\models.py:70
 msgid "ProductImage"
 msgstr "Image"
 
-#: .\main_app\models.py:67
+#: .\main_app\models.py:71
 msgid "ProductImage|plural"
 msgstr "Images"
 
-#: .\main_app\models.py:74 .\main_app\models.py:107
+#: .\main_app\models.py:78 .\main_app\models.py:111
 msgid "News|body"
 msgstr "Body"
 
-#: .\main_app\models.py:75
+#: .\main_app\models.py:79
 msgid "News|carousel"
 msgstr "Show in carousel"
 
-#: .\main_app\models.py:79
+#: .\main_app\models.py:83
 msgid "News|image"
 msgstr "Image"
 
-#: .\main_app\models.py:86
+#: .\main_app\models.py:90
 msgid "News|created"
 msgstr "Created"
 
-#: .\main_app\models.py:87
+#: .\main_app\models.py:91
 msgid "News|updated"
 msgstr "Updated"
 
-#: .\main_app\models.py:90
+#: .\main_app\models.py:94
 msgid "News"
 msgstr "News"
 
-#: .\main_app\models.py:91
+#: .\main_app\models.py:95
 msgid "News|plural"
 msgstr "News"
 
-#: .\main_app\models.py:108
+#: .\main_app\models.py:112
 msgid "News|Image"
 msgstr "Image"
 
-#: .\main_app\models.py:136
+#: .\main_app\models.py:140
 msgid "Contact|social"
 msgstr "Social Network"
 
-#: .\main_app\models.py:137
+#: .\main_app\models.py:141
 msgid "Contact|other"
 msgstr "Other"
 
-#: .\main_app\models.py:140
+#: .\main_app\models.py:144
 msgid "Contact|title"
 msgstr "Title"
 
-#: .\main_app\models.py:141
+#: .\main_app\models.py:145
 msgid "Contact|url_text"
 msgstr "Text for URL"
 
-#: .\main_app\models.py:142
+#: .\main_app\models.py:146
 msgid "Contact|url"
 msgstr "URL"
 
-#: .\main_app\models.py:143
+#: .\main_app\models.py:147
 msgid "Contact|type"
 msgstr "Type"
 
-#: .\main_app\models.py:147 .\main_app\models.py:162
+#: .\main_app\models.py:151 .\main_app\models.py:166
 msgid "Contact|image"
 msgstr "Image"
 
-#: .\main_app\models.py:148
+#: .\main_app\models.py:152
 msgid "Contact|created"
 msgstr "Created"
 
-#: .\main_app\models.py:149
+#: .\main_app\models.py:153
 msgid "Contact|updated"
 msgstr "Updated"
 
-#: .\main_app\models.py:152
+#: .\main_app\models.py:156
 msgid "Contact"
 msgstr "Contact"
 
-#: .\main_app\models.py:153
+#: .\main_app\models.py:157
 msgid "Contact|plural"
 msgstr "Contacts"
 
+#: .\main_app\models.py:170
+#, fuzzy
+#| msgid "Product|Accessory"
+msgid "Product|AccessCode"
+msgstr "Accessory"
+
+#: .\main_app\models.py:171
+msgid "AccessCode|code"
+msgstr ""
+
+#: .\main_app\models.py:172
+msgid "AccessCode|usage"
+msgstr ""
+
+#: .\main_app\models.py:173
+msgid "AccessCode|qrcode"
+msgstr ""
+
+#: .\main_app\models.py:195
+#, fuzzy
+#| msgid "News|image"
+msgid "AccessCode|image"
+msgstr "Image"
+
 #: .\main_app\templates\accessory\base.html:6
+#: .\main_app\templates\base\footer.html:12
 #: .\main_app\templates\base\header.html:25
 #: .\main_app\templates\user\profile.html:10
 msgid "Accessories"
 msgstr ""
+
+#: .\main_app\templates\activation\activate.html:18
+#, fuzzy
+#| msgid "ActivateProduct"
+msgid "Activate"
+msgstr "Activate"
+
+#: .\main_app\templates\activation\base.html:6
+msgid "ActivateProduct"
+msgstr "Activate"
 
 #: .\main_app\templates\admin\base_site.html:3
 msgid "Django site admin"
@@ -187,8 +262,31 @@ msgstr "FlybleTop site admin"
 msgid "Django administration"
 msgstr "FlybleTop administration"
 
-#: .\main_app\templates\authentication\login.html:35
-msgid "Forget password?"
+#: .\main_app\templates\authentication\auth_links.html:6
+#: .\main_app\templates\authentication\auth_links.html:9
+#: .\main_app\templates\authentication\login.html:40
+#: .\main_app\templates\base\header.html:52
+msgid "Login"
+msgstr ""
+
+#: .\main_app\templates\authentication\auth_links.html:7
+#: .\main_app\templates\authentication\auth_links.html:10
+#: .\main_app\templates\base\header.html:53
+msgid "Sign Up"
+msgstr ""
+
+#: .\main_app\templates\authentication\login.html:37
+msgid "Forgot password?"
+msgstr ""
+
+#: .\main_app\templates\authentication\login.html:44
+#: .\main_app\templates\authentication\login.html:46
+msgid "New here?"
+msgstr "New here? Create an account "
+
+#: .\main_app\templates\authentication\password_reset.html:29
+#: .\main_app\templates\authentication\recovery.html:33
+msgid "Submit"
 msgstr ""
 
 #: .\main_app\templates\authentication\registered.html:11
@@ -199,31 +297,60 @@ msgstr ""
 msgid "Now you can login and favorite any product."
 msgstr ""
 
-#: .\main_app\templates\base.html:32 .\main_app\templates\base\header.html:19
+#: .\main_app\templates\authentication\reset_completed.html:11
+msgid "You have successfully updated your password!"
+msgstr ""
+
+#: .\main_app\templates\authentication\reset_completed.html:12
+msgid "Now you can do login with your new password"
+msgstr ""
+
+#: .\main_app\templates\authentication\signup.html:37
+#: .\main_app\templates\authentication\signup.html:39
+msgid "Have an account?"
+msgstr "Have an account? Login here"
+
+#: .\main_app\templates\base.html:34 .\main_app\templates\base\footer.html:10
+#: .\main_app\templates\base\header.html:19
 msgid "Home"
 msgstr ""
 
+#: .\main_app\templates\base\footer.html:7
+msgid "Pages"
+msgstr ""
+
+#: .\main_app\templates\base\footer.html:11
 #: .\main_app\templates\base\header.html:22
 #: .\main_app\templates\insert\base.html:6
 #: .\main_app\templates\user\profile.html:10
 msgid "Inserts"
 msgstr ""
 
-#: .\main_app\templates\base\header.html:30
+#: .\main_app\templates\base\footer.html:13
+#: .\main_app\templates\base\header.html:28
+#: .\main_app\templates\contacts\base.html:6
+#, fuzzy
+#| msgid "Contact"
+msgid "Contacts"
+msgstr "Contact"
+
+#: .\main_app\templates\base\footer.html:17
+msgid "Follow Us"
+msgstr ""
+
+#: .\main_app\templates\base\footer.html:25
+#, fuzzy
+#| msgid "Contact"
+msgid "Contact Us"
+msgstr "Contact"
+
+#: .\main_app\templates\base\header.html:48
 #: .\main_app\templates\user\base.html:6
 msgid "My Profile"
 msgstr ""
 
-#: .\main_app\templates\base\header.html:31
+#: .\main_app\templates\base\header.html:49
 msgid "Logout"
-msgstr ""
-
-#: .\main_app\templates\base\header.html:33
-msgid "Login"
-msgstr ""
-
-#: .\main_app\templates\base\header.html:34
-msgid "Sign Up"
 msgstr ""
 
 #: .\main_app\templates\user\profile.html:7
@@ -246,10 +373,34 @@ msgstr ""
 msgid "pages to select something"
 msgstr ""
 
-#: .\main_app\views.py:26
+#: .\main_app\views.py:52
 msgid "User is not activated"
 msgstr ""
 
-#: .\main_app\views.py:65
+#: .\main_app\views.py:55
+msgid "Cannot login check credentials"
+msgstr "Cannot login using these credentials"
+
+#: .\main_app\views.py:114
+msgid "test email body"
+msgstr ""
+"You've requested password reset on FlybleTop. Please, use link below for new "
+"password creating. Warning, this link is active within 6 hours"
+
+#: .\main_app\views.py:115
+msgid "Password reset email"
+msgstr "FlybleTop password reset"
+
+#: .\main_app\views.py:119
 msgid "check e-mail"
 msgstr "Please, check your e-mail for recovery link"
+
+#: .\main_app\views.py:150
+msgid "key expires"
+msgstr "Reset key expires, please reset password again using form below"
+
+#: .\main_app\views.py:156
+msgid "activation key is not found"
+msgstr ""
+"Password reset link is not exist. Please, use form below to reset your "
+"password"

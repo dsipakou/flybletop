@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-02 16:51+0300\n"
+"POT-Creation-Date: 2016-12-14 18:46+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,163 +24,244 @@ msgstr ""
 msgid "MainApp|name"
 msgstr "Главное приложение"
 
-#: .\main_app\forms.py:67
-msgid "We have no such e-mail address in our database"
-msgstr ""
+#: .\main_app\forms.py:21
+msgid "ActivationCode"
+msgstr "Код активации"
 
-#: .\main_app\models.py:15
+#: .\main_app\forms.py:26 .\main_app\forms.py:36
+msgid "Email"
+msgstr "Email"
+
+#: .\main_app\forms.py:27 .\main_app\forms.py:37 .\main_app\forms.py:74
+msgid "Invalid e-mail"
+msgstr "Неверый email"
+
+#: .\main_app\forms.py:29 .\main_app\forms.py:40 .\main_app\forms.py:95
+msgid "Password"
+msgstr "Пароль"
+
+#: .\main_app\forms.py:34
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: .\main_app\forms.py:42
+msgid "Confirm a password"
+msgstr "Подтвердить пароль"
+
+#: .\main_app\forms.py:48
+msgid "Given username is already in use"
+msgstr "Пользователь с таким именем уже зарегистрирован"
+
+#: .\main_app\forms.py:51
+msgid "Given email address is already in use"
+msgstr "Пользователь с указанным email уже зарегистрирован"
+
+#: .\main_app\forms.py:58 .\main_app\forms.py:107
+msgid "Passwords are not equal"
+msgstr "Пароли не одинаковы"
+
+#: .\main_app\forms.py:73
+msgid "Your E-mail"
+msgstr "Ваш email"
+
+#: .\main_app\forms.py:79
+msgid "We have no such e-mail address in our database"
+msgstr "Пользователя с указанным email нет в нашей базе"
+
+#: .\main_app\models.py:19
 msgid "Product|Insert"
 msgstr "Органайзер"
 
-#: .\main_app\models.py:16
+#: .\main_app\models.py:20
 msgid "Product|Accessory"
 msgstr "Аксессуар"
 
-#: .\main_app\models.py:18
+#: .\main_app\models.py:22
 msgid "Product|name"
 msgstr "Название"
 
-#: .\main_app\models.py:19
+#: .\main_app\models.py:23
 msgid "Product|slug"
 msgstr "Slug"
 
-#: .\main_app\models.py:20
+#: .\main_app\models.py:24
 msgid "Product|desc"
 msgstr "Описание"
 
-#: .\main_app\models.py:21
+#: .\main_app\models.py:25
 msgid "Product|type"
 msgstr "Тип"
 
-#: .\main_app\models.py:22
+#: .\main_app\models.py:26
 msgid "Product|BYN"
 msgstr "Бел рубли"
 
-#: .\main_app\models.py:23
+#: .\main_app\models.py:27
 msgid "Product|USD"
 msgstr "Доллары"
 
-#: .\main_app\models.py:28
+#: .\main_app\models.py:32
 msgid "Product|base_image"
 msgstr "Основная картинка"
 
-#: .\main_app\models.py:32
+#: .\main_app\models.py:36
 msgid "Product|created_at"
 msgstr "Создано"
 
-#: .\main_app\models.py:33
+#: .\main_app\models.py:37
 msgid "Product|updated_at"
 msgstr "Обновлено"
 
-#: .\main_app\models.py:36
+#: .\main_app\models.py:40
 msgid "Product"
 msgstr "Продукт"
 
-#: .\main_app\models.py:37
+#: .\main_app\models.py:41
 msgid "Product|plural"
 msgstr "Продукты"
 
-#: .\main_app\models.py:46
+#: .\main_app\models.py:50
 msgid "Product|image"
 msgstr "Картинка"
 
-#: .\main_app\models.py:50
+#: .\main_app\models.py:54
 msgid "ProductImage|name"
 msgstr "Название продукта"
 
-#: .\main_app\models.py:60
+#: .\main_app\models.py:64
 msgid "ProductImage|image"
 msgstr "Картинка"
 
-#: .\main_app\models.py:66
+#: .\main_app\models.py:70
 msgid "ProductImage"
 msgstr "Картинка"
 
-#: .\main_app\models.py:67
+#: .\main_app\models.py:71
 msgid "ProductImage|plural"
 msgstr "Картинки"
 
-#: .\main_app\models.py:74 .\main_app\models.py:107
+#: .\main_app\models.py:78 .\main_app\models.py:111
 msgid "News|body"
 msgstr "Тело новости"
 
-#: .\main_app\models.py:75
+#: .\main_app\models.py:79
 msgid "News|carousel"
 msgstr "Показ в карусели"
 
-#: .\main_app\models.py:79
+#: .\main_app\models.py:83
 msgid "News|image"
 msgstr "Изображение"
 
-#: .\main_app\models.py:86
+#: .\main_app\models.py:90
 msgid "News|created"
 msgstr "Создано"
 
-#: .\main_app\models.py:87
+#: .\main_app\models.py:91
 msgid "News|updated"
 msgstr "Обновлено"
 
-#: .\main_app\models.py:90
+#: .\main_app\models.py:94
 msgid "News"
 msgstr "Новость"
 
-#: .\main_app\models.py:91
+#: .\main_app\models.py:95
 msgid "News|plural"
 msgstr "Новости"
 
-#: .\main_app\models.py:108
+#: .\main_app\models.py:112
 msgid "News|Image"
 msgstr "Изображение"
 
-#: .\main_app\models.py:136
+#: .\main_app\models.py:140
 msgid "Contact|social"
 msgstr "Социальная сеть"
 
-#: .\main_app\models.py:137
+#: .\main_app\models.py:141
 msgid "Contact|other"
 msgstr "Другое"
 
-#: .\main_app\models.py:140
+#: .\main_app\models.py:144
 msgid "Contact|title"
 msgstr "Заголовок"
 
-#: .\main_app\models.py:141
+#: .\main_app\models.py:145
 msgid "Contact|url_text"
 msgstr "Текст для URL"
 
-#: .\main_app\models.py:142
+#: .\main_app\models.py:146
 msgid "Contact|url"
 msgstr "URL"
 
-#: .\main_app\models.py:143
+#: .\main_app\models.py:147
 msgid "Contact|type"
 msgstr "Тип контакта"
 
-#: .\main_app\models.py:147 .\main_app\models.py:162
+#: .\main_app\models.py:151 .\main_app\models.py:166
 msgid "Contact|image"
 msgstr "Картинка"
 
-#: .\main_app\models.py:148
+#: .\main_app\models.py:152
 msgid "Contact|created"
 msgstr "Создано"
 
-#: .\main_app\models.py:149
+#: .\main_app\models.py:153
 msgid "Contact|updated"
 msgstr "Обновлено"
 
-#: .\main_app\models.py:152
+#: .\main_app\models.py:156
 msgid "Contact"
 msgstr "Контакт"
 
-#: .\main_app\models.py:153
+#: .\main_app\models.py:157
 msgid "Contact|plural"
 msgstr "Контакты"
 
+#: .\main_app\models.py:170
+#, fuzzy
+#| msgid "Product|Accessory"
+msgid "Product|AccessCode"
+msgstr "Аксессуар"
+
+#: .\main_app\models.py:171
+#, fuzzy
+#| msgid "Accessories"
+msgid "AccessCode|code"
+msgstr "Аксессуары"
+
+#: .\main_app\models.py:172
+#, fuzzy
+#| msgid "Accessories"
+msgid "AccessCode|usage"
+msgstr "Аксессуары"
+
+#: .\main_app\models.py:173
+#, fuzzy
+#| msgid "Accessories"
+msgid "AccessCode|qrcode"
+msgstr "Аксессуары"
+
+#: .\main_app\models.py:195
+#, fuzzy
+#| msgid "Accessories"
+msgid "AccessCode|image"
+msgstr "Аксессуары"
+
 #: .\main_app\templates\accessory\base.html:6
+#: .\main_app\templates\base\footer.html:12
 #: .\main_app\templates\base\header.html:25
 #: .\main_app\templates\user\profile.html:10
 msgid "Accessories"
 msgstr "Аксессуары"
+
+#: .\main_app\templates\activation\activate.html:18
+#, fuzzy
+#| msgid "ActivateProduct"
+msgid "Activate"
+msgstr "Активация"
+
+#: .\main_app\templates\activation\base.html:6
+msgid "ActivateProduct"
+msgstr "Активация"
 
 #: .\main_app\templates\admin\base_site.html:3
 msgid "Django site admin"
@@ -190,13 +271,36 @@ msgstr "Администрирование FlybleTop"
 msgid "Django administration"
 msgstr "Администрирование FlybleTop"
 
-#: .\main_app\templates\authentication\login.html:35
-msgid "Forget password?"
-msgstr ""
+#: .\main_app\templates\authentication\auth_links.html:6
+#: .\main_app\templates\authentication\auth_links.html:9
+#: .\main_app\templates\authentication\login.html:40
+#: .\main_app\templates\base\header.html:52
+msgid "Login"
+msgstr "Вход"
+
+#: .\main_app\templates\authentication\auth_links.html:7
+#: .\main_app\templates\authentication\auth_links.html:10
+#: .\main_app\templates\base\header.html:53
+msgid "Sign Up"
+msgstr "Регистрация"
+
+#: .\main_app\templates\authentication\login.html:37
+msgid "Forgot password?"
+msgstr "Забыли пароль?"
+
+#: .\main_app\templates\authentication\login.html:44
+#: .\main_app\templates\authentication\login.html:46
+msgid "New here?"
+msgstr "Впервые здесь? Создать аккаунт"
+
+#: .\main_app\templates\authentication\password_reset.html:29
+#: .\main_app\templates\authentication\recovery.html:33
+msgid "Submit"
+msgstr "Готово"
 
 #: .\main_app\templates\authentication\registered.html:11
 msgid "Your registration successfully completed!"
-msgstr ""
+msgstr "Регистация прошла успешно!"
 
 #: .\main_app\templates\authentication\registered.html:12
 #, fuzzy
@@ -204,32 +308,59 @@ msgstr ""
 msgid "Now you can login and favorite any product."
 msgstr "В избранном пока пусто, сходи в"
 
-#: .\main_app\templates\base.html:32 .\main_app\templates\base\header.html:19
+#: .\main_app\templates\authentication\reset_completed.html:11
+msgid "You have successfully updated your password!"
+msgstr "Пароль успешно изменён!"
+
+#: .\main_app\templates\authentication\reset_completed.html:12
+#, fuzzy
+#| msgid "You have favorited following products"
+msgid "Now you can do login with your new password"
+msgstr "В избранном пока пусто, сходи в"
+
+#: .\main_app\templates\authentication\signup.html:37
+#: .\main_app\templates\authentication\signup.html:39
+msgid "Have an account?"
+msgstr "Уже есть аккаунт? Войти здесь"
+
+#: .\main_app\templates\base.html:34 .\main_app\templates\base\footer.html:10
+#: .\main_app\templates\base\header.html:19
 msgid "Home"
 msgstr "Главная"
 
+#: .\main_app\templates\base\footer.html:7
+msgid "Pages"
+msgstr "Разделы"
+
+#: .\main_app\templates\base\footer.html:11
 #: .\main_app\templates\base\header.html:22
 #: .\main_app\templates\insert\base.html:6
 #: .\main_app\templates\user\profile.html:10
 msgid "Inserts"
 msgstr "Органайзеры"
 
-#: .\main_app\templates\base\header.html:30
+#: .\main_app\templates\base\footer.html:13
+#: .\main_app\templates\base\header.html:28
+#: .\main_app\templates\contacts\base.html:6
+msgid "Contacts"
+msgstr "Контакты"
+
+#: .\main_app\templates\base\footer.html:17
+msgid "Follow Us"
+msgstr "Мы в соцсетях"
+
+#: .\main_app\templates\base\footer.html:25
+msgid "Contact Us"
+msgstr "Связаться"
+
+#: .\main_app\templates\base\header.html:48
 #: .\main_app\templates\user\base.html:6
 msgid "My Profile"
 msgstr "Мой профиль"
 
-#: .\main_app\templates\base\header.html:31
+#: .\main_app\templates\base\header.html:49
 msgid "Logout"
 msgstr "Выйти"
-
-#: .\main_app\templates\base\header.html:33
-msgid "Login"
-msgstr "Вход"
-
-#: .\main_app\templates\base\header.html:34
-msgid "Sign Up"
-msgstr "Регистрация"
 
 #: .\main_app\templates\user\profile.html:7
 msgid "Hello"
@@ -253,13 +384,39 @@ msgstr "или в"
 msgid "pages to select something"
 msgstr "чтобы выбрать что-нибудь"
 
-#: .\main_app\views.py:26
+#: .\main_app\views.py:52
 msgid "User is not activated"
 msgstr "Пользователь деактивирован"
 
-#: .\main_app\views.py:65
+#: .\main_app\views.py:55
+msgid "Cannot login check credentials"
+msgstr "Невозможно зайти с указанными данными"
+
+#: .\main_app\views.py:114
+msgid "test email body"
+msgstr ""
+"Вы выбрали сброс пароля на сайте FlybleTop. Воспользуйтесь ссылкой ниже, "
+"чтобы изменить свой пароль. Внимание, ссылка активна в течение 6 часов."
+
+#: .\main_app\views.py:115
+msgid "Password reset email"
+msgstr "Сброс пароля на FlybleTop"
+
+#: .\main_app\views.py:119
 msgid "check e-mail"
 msgstr "Мы выслали ссылку для восстановления пароля на указанный адрес"
+
+#: .\main_app\views.py:150
+msgid "key expires"
+msgstr ""
+"Ключ для сброса пароля уже неактуален. Пожалуйста, воспользуйтесь формой "
+"ниже, для генерации нового ключа."
+
+#: .\main_app\views.py:156
+msgid "activation key is not found"
+msgstr ""
+"Такой ссылки для сброса пароля не существует, воспользуйтесь формой ниже, "
+"чтобы сгенерировать новуюю"
 
 #~ msgid "Caverna insert"
 #~ msgstr "Органайзер для каверны"

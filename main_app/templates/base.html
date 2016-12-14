@@ -22,7 +22,9 @@
     <title>Flybletop</title>
 </head>
 <body>
-    {% include 'base/header.html' %}
+    {% block header %}
+        {% include 'base/header.html' %}
+    {% endblock %}
     {% block index_carousel %}
     {% endblock %}
     <main class="container container--mw700" role="main">

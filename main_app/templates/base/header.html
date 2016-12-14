@@ -24,18 +24,35 @@
             <li>
                 <a href="{% url 'accessory' %}">{% trans 'Accessories' %}</a>
             </li>
+            <li>
+                <a href="{% url 'contacts' %}">{% trans 'Contacts' %}</a>
+            </li>
         </ul>
+        <form action="{% url 'set_language' %}" method="post" id="languageform" >{% csrf_token %}
+            <ul class="nav navbar-nav navbar-right collapse navbar-collapse text-center">
+                <input name="next" type="hidden" value="{{ redirect_to }}" />
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+                <li class="nav-item pt-5 pl-5">
+                {% for language in languages %}
+                    {% with 'images/'|add:language.code|add:'.png' as image_static %}
+                        </span><span class="pl-5"><a href="#" class="align-right" onclick="languageinput.value = '{{ language.code }}'; languageform.submit();"><img src="{% static image_static %}" alt=""></a></span>
+                    {% endwith %}
+                {% endfor %}
+                </li>
+                <input type="hidden" id="languageinput" name="language"/>
+            </ul>
+        </form>
         <ul class="nav navbar-nav navbar-right text-center collapse navbar-collapse align-middle">
             {% if user.is_authenticated %}
-                <li><a href="{% url 'profile' %}" class="align-right link">{% trans 'My Profile' %}</a></li>
+                <li><a href="{% url 'profile' %}" class="align-right">{% trans 'My Profile' %}</a></li>
                 <li><a href="{% url 'logout' %}?next={{ request.path }}" class="align-right">{% trans 'Logout' %}</a></li>
             {% else %}
-                <li><a href="{% url 'login' %}?next={{ request.path }}" class="align-right">{% trans 'Login' %}</a></li>
-                <li><a href="{% url 'sign_up' %}" class="align-right">{% trans 'Sign Up' %}</a></li>
+                {% block auth_links %}
+                    <li><a href="{% url 'login' %}?next={{ request.path }}" class="align-right">{% trans 'Login' %}</a></li>
+                    <li><a href="{% url 'sign_up' %}?next={{ request.path }}" class="align-right">{% trans 'Sign Up' %}</a></li>
+                {% endblock %}
             {% endif %}
-            <li class="align-middle form-inline" style="height: 60px;">
-
-            </li>
         </ul>
         <p>
             <form class="form-inline float-xs-right navbar-right hidden-xs hidden-sm align-middle">
