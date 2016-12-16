@@ -11,7 +11,7 @@ from django.urls import reverse
 from imagekit.models import ProcessedImageField, ImageSpecField
 from imagekit.processors import ResizeToFit, ResizeToCover, Crop, Resize
 
-from Flybletop.settings import BASE_DIR
+from Flybletop.settings import ALLOWED_HOSTS
 from helpers.watermark import ImageWatermark
 from ckeditor.fields import RichTextField
 from django.utils.translation import ugettext_lazy as _
@@ -175,10 +175,13 @@ class AccessCode(models.Model):
     usage = models.BooleanField(default=False, verbose_name=_('AccessCode|usage'))
     qrcode = models.ImageField(upload_to='qrcode', blank=True, null=True, verbose_name=_('AccessCode|qrcode'))
     user = models.ForeignKey(User, related_name='user', verbose_name=('AccessCode|user'), null=True, blank=True)
+    activated = models.BooleanField(default=False ,verbose_name=_('AccessCode|activated'))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('AccessCode|created'))
+    updated_at = models.DateTimeField(auto_now=True, verbose_name=_('AccessCode|updated'))
 
     def generate_qrcode(self):
         qr = qrcode.QRCode(version=1, box_size=6, border=0)
-        qr.add_data(self.code)
+        qr.add_data('http://' + ALLOWED_HOSTS[0] + reverse('activate_product') + self.code)
         qr.make(fit=True)
         img = qr.make_image()
         buffer = BytesIO()
@@ -188,12 +191,14 @@ class AccessCode(models.Model):
         self.qrcode.save(filename, filebuffer, False)
 
     def admin_image(self):
-        return u'<img src="%s" />' % self.qrcode.url
+        return u'<img src="%s" width="100" height="100"/>' % self.qrcode.url
 
-    def save(self, generate_qr=True, *args, **kwargs):
-        if generate_qr:
-            self.generate_qrcode()
-        super(AccessCode, self).save(*args, **kwargs)
+    def __str__(self):
+        return self.product.name
+
+    class Meta:
+        verbose_name = _('AccessCode')
+        verbose_name_plural = _('AccessCode|plural')
 
     admin_image.allow_tags = True
     admin_image.short_description = _('AccessCode|image')
@@ -211,6 +216,10 @@ def _create_slug(instance, new_slug=None):
     return slug
 
 
+def _generate_qrcode(instance):
+    instance.generate_qrcode()
+
+
 def _create_access_code():
     num = '%s-%s-%s' % (random.randint(1000, 9990), random.randint(1000, 9990), random.randint(1000, 9990))
     check = AccessCode.objects.filter(code=num)
@@ -224,6 +233,11 @@ def pre_save_product_receiver(sender, instance, *args, **kwargs):
         instance.slug = _create_slug(instance)
 
 
+def pre_save_qrcode_received(sender, instance, *args, **kwargs):
+    if not instance.qrcode:
+        _generate_qrcode(instance)
+
+
 def pre_save_accesscode_receiver(sender, instance, *args, **kwargs):
     if not instance.code:
         instance.code = _create_access_code()
@@ -231,3 +245,4 @@ def pre_save_accesscode_receiver(sender, instance, *args, **kwargs):
 
 pre_save.connect(pre_save_product_receiver, sender=Product)
 pre_save.connect(pre_save_accesscode_receiver, sender=AccessCode)
+pre_save.connect(pre_save_qrcode_received, sender=AccessCode)

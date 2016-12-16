@@ -32,9 +32,9 @@ class ContactAdmin(TranslationAdmin):
 
 
 class AccessCodeAdmin(TranslationAdmin):
-    list_display = ('product', 'code', 'usage', 'admin_image', 'user')
-    exclude = ('qrcode', 'code', 'user', 'usage')
-    list_filter = ('product', 'usage')
+    list_display = ('product', 'code', 'usage', 'admin_image', 'user', 'activated', 'created_at', 'updated_at')
+    exclude = ('qrcode', 'code', 'user', 'activated')
+    list_filter = ('product', 'usage', 'activated')
 
 
 admin.site.register(Product, ProductAdmin)

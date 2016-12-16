@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-14 18:46+0300\n"
+"POT-Creation-Date: 2016-12-16 13:31+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,236 +28,258 @@ msgstr "Главное приложение"
 msgid "ActivationCode"
 msgstr "Код активации"
 
-#: .\main_app\forms.py:26 .\main_app\forms.py:36
+#: .\main_app\forms.py:26 .\main_app\forms.py:33 .\main_app\forms.py:65
 msgid "Email"
 msgstr "Email"
 
-#: .\main_app\forms.py:27 .\main_app\forms.py:37 .\main_app\forms.py:74
+#: .\main_app\forms.py:27 .\main_app\forms.py:35 .\main_app\forms.py:66
+#: .\main_app\forms.py:104
 msgid "Invalid e-mail"
 msgstr "Неверый email"
 
-#: .\main_app\forms.py:29 .\main_app\forms.py:40 .\main_app\forms.py:95
+#: .\main_app\forms.py:29 .\main_app\forms.py:69 .\main_app\forms.py:125
 msgid "Password"
 msgstr "Пароль"
 
 #: .\main_app\forms.py:34
+msgid "New Email"
+msgstr "Новый email"
+
+#: .\main_app\forms.py:36 .\main_app\forms.py:63
 msgid "Username"
-msgstr "Имя пользователя"
+msgstr "Юзернейм"
 
-#: .\main_app\forms.py:42
-msgid "Confirm a password"
-msgstr "Подтвердить пароль"
+#: .\main_app\forms.py:37
+msgid "New Username"
+msgstr "Новый юзернейм"
 
-#: .\main_app\forms.py:48
+#: .\main_app\forms.py:43 .\main_app\forms.py:78
 msgid "Given username is already in use"
 msgstr "Пользователь с таким именем уже зарегистрирован"
 
-#: .\main_app\forms.py:51
+#: .\main_app\forms.py:47 .\main_app\forms.py:81
 msgid "Given email address is already in use"
 msgstr "Пользователь с указанным email уже зарегистрирован"
 
-#: .\main_app\forms.py:58 .\main_app\forms.py:107
+#: .\main_app\forms.py:71
+msgid "Confirm a password"
+msgstr "Подтвердить пароль"
+
+#: .\main_app\forms.py:88 .\main_app\forms.py:137
 msgid "Passwords are not equal"
 msgstr "Пароли не одинаковы"
 
-#: .\main_app\forms.py:73
+#: .\main_app\forms.py:103
 msgid "Your E-mail"
 msgstr "Ваш email"
 
-#: .\main_app\forms.py:79
+#: .\main_app\forms.py:109
 msgid "We have no such e-mail address in our database"
 msgstr "Пользователя с указанным email нет в нашей базе"
 
-#: .\main_app\models.py:19
+#: .\main_app\models.py:22
 msgid "Product|Insert"
 msgstr "Органайзер"
 
-#: .\main_app\models.py:20
+#: .\main_app\models.py:23
 msgid "Product|Accessory"
 msgstr "Аксессуар"
 
-#: .\main_app\models.py:22
+#: .\main_app\models.py:25
 msgid "Product|name"
 msgstr "Название"
 
-#: .\main_app\models.py:23
+#: .\main_app\models.py:26
 msgid "Product|slug"
 msgstr "Slug"
 
-#: .\main_app\models.py:24
+#: .\main_app\models.py:27
 msgid "Product|desc"
 msgstr "Описание"
 
-#: .\main_app\models.py:25
+#: .\main_app\models.py:28
 msgid "Product|type"
 msgstr "Тип"
 
-#: .\main_app\models.py:26
+#: .\main_app\models.py:29
 msgid "Product|BYN"
 msgstr "Бел рубли"
 
-#: .\main_app\models.py:27
+#: .\main_app\models.py:30
 msgid "Product|USD"
 msgstr "Доллары"
 
-#: .\main_app\models.py:32
+#: .\main_app\models.py:35
 msgid "Product|base_image"
 msgstr "Основная картинка"
 
-#: .\main_app\models.py:36
+#: .\main_app\models.py:39
 msgid "Product|created_at"
 msgstr "Создано"
 
-#: .\main_app\models.py:37
+#: .\main_app\models.py:40
 msgid "Product|updated_at"
 msgstr "Обновлено"
 
-#: .\main_app\models.py:40
+#: .\main_app\models.py:43
 msgid "Product"
 msgstr "Продукт"
 
-#: .\main_app\models.py:41
+#: .\main_app\models.py:44
 msgid "Product|plural"
 msgstr "Продукты"
 
-#: .\main_app\models.py:50
+#: .\main_app\models.py:53
 msgid "Product|image"
 msgstr "Картинка"
 
-#: .\main_app\models.py:54
+#: .\main_app\models.py:57
 msgid "ProductImage|name"
 msgstr "Название продукта"
 
-#: .\main_app\models.py:64
+#: .\main_app\models.py:67
 msgid "ProductImage|image"
 msgstr "Картинка"
 
-#: .\main_app\models.py:70
+#: .\main_app\models.py:73
 msgid "ProductImage"
 msgstr "Картинка"
 
-#: .\main_app\models.py:71
+#: .\main_app\models.py:74
 msgid "ProductImage|plural"
 msgstr "Картинки"
 
-#: .\main_app\models.py:78 .\main_app\models.py:111
+#: .\main_app\models.py:81 .\main_app\models.py:114
 msgid "News|body"
 msgstr "Тело новости"
 
-#: .\main_app\models.py:79
+#: .\main_app\models.py:82
 msgid "News|carousel"
 msgstr "Показ в карусели"
 
-#: .\main_app\models.py:83
+#: .\main_app\models.py:86
 msgid "News|image"
 msgstr "Изображение"
 
-#: .\main_app\models.py:90
+#: .\main_app\models.py:93
 msgid "News|created"
 msgstr "Создано"
 
-#: .\main_app\models.py:91
+#: .\main_app\models.py:94
 msgid "News|updated"
 msgstr "Обновлено"
 
-#: .\main_app\models.py:94
+#: .\main_app\models.py:97
 msgid "News"
 msgstr "Новость"
 
-#: .\main_app\models.py:95
+#: .\main_app\models.py:98
 msgid "News|plural"
 msgstr "Новости"
 
-#: .\main_app\models.py:112
+#: .\main_app\models.py:115
 msgid "News|Image"
 msgstr "Изображение"
 
-#: .\main_app\models.py:140
+#: .\main_app\models.py:143
 msgid "Contact|social"
 msgstr "Социальная сеть"
 
-#: .\main_app\models.py:141
+#: .\main_app\models.py:144
 msgid "Contact|other"
 msgstr "Другое"
 
-#: .\main_app\models.py:144
+#: .\main_app\models.py:147
 msgid "Contact|title"
 msgstr "Заголовок"
 
-#: .\main_app\models.py:145
+#: .\main_app\models.py:148
 msgid "Contact|url_text"
 msgstr "Текст для URL"
 
-#: .\main_app\models.py:146
+#: .\main_app\models.py:149
 msgid "Contact|url"
 msgstr "URL"
 
-#: .\main_app\models.py:147
+#: .\main_app\models.py:150
 msgid "Contact|type"
 msgstr "Тип контакта"
 
-#: .\main_app\models.py:151 .\main_app\models.py:166
+#: .\main_app\models.py:154 .\main_app\models.py:169
 msgid "Contact|image"
 msgstr "Картинка"
 
-#: .\main_app\models.py:152
+#: .\main_app\models.py:155
 msgid "Contact|created"
 msgstr "Создано"
 
-#: .\main_app\models.py:153
+#: .\main_app\models.py:156
 msgid "Contact|updated"
 msgstr "Обновлено"
 
-#: .\main_app\models.py:156
+#: .\main_app\models.py:159
 msgid "Contact"
 msgstr "Контакт"
 
-#: .\main_app\models.py:157
+#: .\main_app\models.py:160
 msgid "Contact|plural"
 msgstr "Контакты"
 
-#: .\main_app\models.py:170
-#, fuzzy
-#| msgid "Product|Accessory"
+#: .\main_app\models.py:173
 msgid "Product|AccessCode"
 msgstr "Аксессуар"
 
-#: .\main_app\models.py:171
-#, fuzzy
-#| msgid "Accessories"
+#: .\main_app\models.py:174
 msgid "AccessCode|code"
-msgstr "Аксессуары"
+msgstr "Ключ"
 
-#: .\main_app\models.py:172
-#, fuzzy
-#| msgid "Accessories"
+#: .\main_app\models.py:175
 msgid "AccessCode|usage"
-msgstr "Аксессуары"
+msgstr "Выслан?"
 
-#: .\main_app\models.py:173
-#, fuzzy
-#| msgid "Accessories"
+#: .\main_app\models.py:176
 msgid "AccessCode|qrcode"
-msgstr "Аксессуары"
+msgstr "QR Code"
 
-#: .\main_app\models.py:195
-#, fuzzy
-#| msgid "Accessories"
+#: .\main_app\models.py:178
+msgid "AccessCode|activated"
+msgstr "Активирован?"
+
+#: .\main_app\models.py:179
+msgid "AccessCode|created"
+msgstr "Создан"
+
+#: .\main_app\models.py:180
+msgid "AccessCode|updated"
+msgstr "Обновлён"
+
+#: .\main_app\models.py:200
+msgid "AccessCode"
+msgstr "Ключ регистрации"
+
+#: .\main_app\models.py:201
+msgid "AccessCode|plural"
+msgstr "Ключи регистрации"
+
+#: .\main_app\models.py:204
 msgid "AccessCode|image"
-msgstr "Аксессуары"
+msgstr "Картинка"
 
 #: .\main_app\templates\accessory\base.html:6
 #: .\main_app\templates\base\footer.html:12
 #: .\main_app\templates\base\header.html:25
-#: .\main_app\templates\user\profile.html:10
+#: .\main_app\templates\user\favorite.html:19
 msgid "Accessories"
 msgstr "Аксессуары"
 
-#: .\main_app\templates\activation\activate.html:18
-#, fuzzy
-#| msgid "ActivateProduct"
+#: .\main_app\templates\activation\activate.html:23
 msgid "Activate"
-msgstr "Активация"
+msgstr "Активировать"
+
+#: .\main_app\templates\activation\activate.html:32
+#: .\main_app\templates\activation\success.html:11
+msgid "You have successfully registered your product!"
+msgstr "Ваш продукт зарегистрирован!"
 
 #: .\main_app\templates\activation\base.html:6
 msgid "ActivateProduct"
@@ -295,6 +317,7 @@ msgstr "Впервые здесь? Создать аккаунт"
 
 #: .\main_app\templates\authentication\password_reset.html:29
 #: .\main_app\templates\authentication\recovery.html:33
+#: .\main_app\templates\authentication\signup.html:32
 msgid "Submit"
 msgstr "Готово"
 
@@ -303,23 +326,19 @@ msgid "Your registration successfully completed!"
 msgstr "Регистация прошла успешно!"
 
 #: .\main_app\templates\authentication\registered.html:12
-#, fuzzy
-#| msgid "You have favorited following products"
 msgid "Now you can login and favorite any product."
-msgstr "В избранном пока пусто, сходи в"
+msgstr "Теперь вы можете войти с указанными данными"
 
 #: .\main_app\templates\authentication\reset_completed.html:11
 msgid "You have successfully updated your password!"
 msgstr "Пароль успешно изменён!"
 
 #: .\main_app\templates\authentication\reset_completed.html:12
-#, fuzzy
-#| msgid "You have favorited following products"
 msgid "Now you can do login with your new password"
-msgstr "В избранном пока пусто, сходи в"
+msgstr "Теперь вы можете залогиниться с новым паролем"
 
-#: .\main_app\templates\authentication\signup.html:37
-#: .\main_app\templates\authentication\signup.html:39
+#: .\main_app\templates\authentication\signup.html:36
+#: .\main_app\templates\authentication\signup.html:38
 msgid "Have an account?"
 msgstr "Уже есть аккаунт? Войти здесь"
 
@@ -335,7 +354,7 @@ msgstr "Разделы"
 #: .\main_app\templates\base\footer.html:11
 #: .\main_app\templates\base\header.html:22
 #: .\main_app\templates\insert\base.html:6
-#: .\main_app\templates\user\profile.html:10
+#: .\main_app\templates\user\favorite.html:19
 msgid "Inserts"
 msgstr "Органайзеры"
 
@@ -362,27 +381,55 @@ msgstr "Мой профиль"
 msgid "Logout"
 msgstr "Выйти"
 
-#: .\main_app\templates\user\profile.html:7
+#: .\main_app\templates\user\favorite.html:6
+#: .\main_app\templates\user\tabs.html:5
+msgid "Favorite"
+msgstr "Избранное"
+
+#: .\main_app\templates\user\favorite.html:16
 msgid "Hello"
 msgstr "Привет"
 
-#: .\main_app\templates\user\profile.html:9
+#: .\main_app\templates\user\favorite.html:18
 msgid "You have favorited following products"
 msgstr "Тебе понравились вот эти вещи"
 
-#: .\main_app\templates\user\profile.html:10
-#, fuzzy
-#| msgid "You have favorited following products"
+#: .\main_app\templates\user\favorite.html:19
 msgid "You have not favorited any product yet, go to"
 msgstr "В избранном пока пусто, сходи в"
 
-#: .\main_app\templates\user\profile.html:10
+#: .\main_app\templates\user\favorite.html:19
 msgid "or to"
 msgstr "или в"
 
-#: .\main_app\templates\user\profile.html:10
+#: .\main_app\templates\user\favorite.html:19
 msgid "pages to select something"
 msgstr "чтобы выбрать что-нибудь"
+
+#: .\main_app\templates\user\products.html:6
+#: .\main_app\templates\user\tabs.html:6
+msgid "My Products"
+msgstr "Мои продукты"
+
+#: .\main_app\templates\user\products.html:16
+msgid "You have not activated any product yet"
+msgstr "Ниодного продукта ещё не активировано"
+
+#: .\main_app\templates\user\profile.html:6
+msgid "User information"
+msgstr "Информация"
+
+#: .\main_app\templates\user\profile.html:20
+msgid "Update you profile data"
+msgstr "Обновление персональных данных"
+
+#: .\main_app\templates\user\profile.html:37
+msgid "Update"
+msgstr "Обновить"
+
+#: .\main_app\templates\user\tabs.html:4
+msgid "User Info"
+msgstr "Информация"
 
 #: .\main_app\views.py:52
 msgid "User is not activated"
@@ -417,6 +464,18 @@ msgid "activation key is not found"
 msgstr ""
 "Такой ссылки для сброса пароля не существует, воспользуйтесь формой ниже, "
 "чтобы сгенерировать новуюю"
+
+#: .\main_app\views.py:207
+msgid "Profile updated successfully"
+msgstr "Данные успешно обновлены"
+
+#: .\main_app\views.py:274
+msgid "No such access code"
+msgstr "Такого ключа не существует"
+
+#: .\main_app\views.py:277
+msgid "Code already used"
+msgstr "Ключ уже использован"
 
 #~ msgid "Caverna insert"
 #~ msgstr "Органайзер для каверны"

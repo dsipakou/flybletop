@@ -1,0 +1,51 @@
+{% extends 'user/base.html' %}
+{% load i18n %}
+
+{% block breadcrumb %}
+    {{ block.super }}
+    <li class="breadcrumb-item"></i><a href="{% url 'favorite' %}">{% trans 'Favorite' %}</a></li>
+{% endblock %}
+
+{% block favorite %}class="active"{% endblock %}
+
+{% block content %}
+    {% include 'user/tabs.html' with favorite=True %}
+
+    <section class="jumbotron text-center">
+        <div class="row">
+            <h2>{% trans 'Hello' %}, {{ user.username }}!</h2>
+            <p class="lead">{% if products|length > 0 %}
+                {% trans 'You have favorited following products' %}{% else %}
+                {% trans 'You have not favorited any product yet, go to' %} <a href="{% url 'insert' %}">{% trans 'Inserts' %}</a> {% trans 'or to' %} <a href="{% url 'accessory' %}">{% trans 'Accessories' %}</a> {% trans 'pages to select something' %}
+            {% endif %}</p>
+        </div>
+    </section>
+    <div class="content">
+        <div class="row">
+        {% for product in products %}
+            <div class="col-md-6 col-sm-6 col-xs-12 col-lg-4 catalog-item">
+                <div class="panel">
+                    {% if product.type == 1 %}
+                    <a href="{% url types.1 %}{{ product.slug }}">
+                    {% else %}
+                    <a href="{% url types.2 %}{{ product.slug }}">
+                    {% endif %}
+                        <div class="panel-heading">
+                            <img src="{{ product.base_image.url }}" />
+                        </div>
+                        <div class="panel-heading">
+                            <h2 class="panel-title text-info"> {{ product.name }}</h2>
+                        </div>
+                    </a>
+                    <div class="panel-body">
+                        <p>{{ product.desc }}</p>
+                        <p><strong>{{ product.price_usd }} <span>$</span></strong></p>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

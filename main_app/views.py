@@ -9,7 +9,7 @@ from django.utils import timezone
 from django.contrib import messages
 
 from .models import Product, Like, News, Profile, AccessCode
-from .forms import SearchForm, LoginForm, RegistrationForm, RecoveryForm, NewPasswordForm, ActivationForm
+from .forms import SearchForm, LoginForm, RegistrationForm, RecoveryForm, NewPasswordForm, ActivationForm, ProfileForm
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -200,14 +200,43 @@ def detail(request, slug):
 
 @login_required
 def profile(request):
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, user=request.user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, _('Profile updated successfully'))
+        context = {
+            'form': form
+        }
+        return render(request, 'user/profile.html', context)
+    else:
+        form = ProfileForm()
+        form.fields['email'].initial = request.user.email
+        form.fields['username'].initial = request.user.username
+        context = {
+            'form': form
+        }
+        return render(request, 'user/profile.html', context)
+
+
+@login_required
+def favorite(request):
     products = Product.objects.filter(product_id__like_type=2, product_id__user=request.user.id)
     types = {'1': 'insert', '2': 'accessory'}
     context = {
         'products': products,
         'types': types
     }
-    return render(request, 'user/profile.html', context)
+    return render(request, 'user/favorite.html', context)
 
+
+@login_required
+def my_products(request):
+    codes = AccessCode.objects.filter(user=request.user, activated=True)
+    context = {
+        'codes': codes
+    }
+    return render(request, 'user/products.html', context)
 
 def insert(request):
     inserts = Product.objects.filter(type=1)
@@ -229,7 +258,10 @@ def contacts(request):
     return render(request, 'contacts/contacts.html')
 
 
-def activate_product(request):
+def activate_product(request, activation_key=False):
+    url = '/activate/'
+    if activation_key:
+        url += activation_key
     if request.user.is_authenticated:
         if request.method == 'POST':
             form = ActivationForm(request.POST)
@@ -241,23 +273,24 @@ def activate_product(request):
                 if len(get_code) < 1:
                     form.add_error('code', _('No such access code'))
                     return render(request, 'activation/activate.html', {'form': form})
-                elif get_code[0].usage:
+                elif get_code[0].activated:
                     form.add_error('code', _('Code already used'))
                     return render(request, 'activation/activate.html', {'form': form})
                 else:
-                    get_code[0].usage = True
+                    get_code[0].activated = True
                     get_code[0].user = request.user
-                    get_code[0].save(generate_qr=False)
+                    get_code[0].save()
                     return render(request, 'activation/activate.html', {'success': True})
-
         else:
             form = ActivationForm()
+            if activation_key:
+                form.fields['code'].initial = activation_key
             context = {
                 'form': form
             }
             return render(request, 'activation/activate.html', context)
     else:
-        return HttpResponseRedirect(reverse('sign_up') + '?next=/activate/')
+        return HttpResponseRedirect(reverse('login') + '?next=' + url)
 
 
 def like_product(request):

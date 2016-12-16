@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-14 18:46+0300\n"
+"POT-Creation-Date: 2016-12-16 13:31+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,213 +25,254 @@ msgstr "Main application"
 msgid "ActivationCode"
 msgstr "Activation code"
 
-#: .\main_app\forms.py:26 .\main_app\forms.py:36
+#: .\main_app\forms.py:26 .\main_app\forms.py:33 .\main_app\forms.py:65
 msgid "Email"
 msgstr ""
 
-#: .\main_app\forms.py:27 .\main_app\forms.py:37 .\main_app\forms.py:74
+#: .\main_app\forms.py:27 .\main_app\forms.py:35 .\main_app\forms.py:66
+#: .\main_app\forms.py:104
 msgid "Invalid e-mail"
 msgstr ""
 
-#: .\main_app\forms.py:29 .\main_app\forms.py:40 .\main_app\forms.py:95
+#: .\main_app\forms.py:29 .\main_app\forms.py:69 .\main_app\forms.py:125
 msgid "Password"
 msgstr ""
 
 #: .\main_app\forms.py:34
+msgid "New Email"
+msgstr ""
+
+#: .\main_app\forms.py:36 .\main_app\forms.py:63
 msgid "Username"
 msgstr ""
 
-#: .\main_app\forms.py:42
-msgid "Confirm a password"
-msgstr ""
+#: .\main_app\forms.py:37
+#, fuzzy
+#| msgid "New here?"
+msgid "New Username"
+msgstr "New here? Create an account "
 
-#: .\main_app\forms.py:48
+#: .\main_app\forms.py:43 .\main_app\forms.py:78
 msgid "Given username is already in use"
 msgstr ""
 
-#: .\main_app\forms.py:51
+#: .\main_app\forms.py:47 .\main_app\forms.py:81
 msgid "Given email address is already in use"
 msgstr ""
 
-#: .\main_app\forms.py:58 .\main_app\forms.py:107
+#: .\main_app\forms.py:71
+msgid "Confirm a password"
+msgstr ""
+
+#: .\main_app\forms.py:88 .\main_app\forms.py:137
 msgid "Passwords are not equal"
 msgstr ""
 
-#: .\main_app\forms.py:73
+#: .\main_app\forms.py:103
 msgid "Your E-mail"
 msgstr ""
 
-#: .\main_app\forms.py:79
+#: .\main_app\forms.py:109
 msgid "We have no such e-mail address in our database"
 msgstr ""
 
-#: .\main_app\models.py:19
+#: .\main_app\models.py:22
 msgid "Product|Insert"
 msgstr "Insert"
 
-#: .\main_app\models.py:20
+#: .\main_app\models.py:23
 msgid "Product|Accessory"
 msgstr "Accessory"
 
-#: .\main_app\models.py:22
+#: .\main_app\models.py:25
 msgid "Product|name"
 msgstr "Name"
 
-#: .\main_app\models.py:23
+#: .\main_app\models.py:26
 msgid "Product|slug"
 msgstr "Slug"
 
-#: .\main_app\models.py:24
+#: .\main_app\models.py:27
 msgid "Product|desc"
 msgstr "Description"
 
-#: .\main_app\models.py:25
+#: .\main_app\models.py:28
 msgid "Product|type"
 msgstr "Type"
 
-#: .\main_app\models.py:26
+#: .\main_app\models.py:29
 msgid "Product|BYN"
 msgstr "BYN"
 
-#: .\main_app\models.py:27
+#: .\main_app\models.py:30
 msgid "Product|USD"
 msgstr "USD"
 
-#: .\main_app\models.py:32
+#: .\main_app\models.py:35
 msgid "Product|base_image"
 msgstr "Base image"
 
-#: .\main_app\models.py:36
+#: .\main_app\models.py:39
 msgid "Product|created_at"
 msgstr "Created"
 
-#: .\main_app\models.py:37
+#: .\main_app\models.py:40
 msgid "Product|updated_at"
 msgstr "Updated"
 
-#: .\main_app\models.py:40
+#: .\main_app\models.py:43
 msgid "Product"
 msgstr "Product"
 
-#: .\main_app\models.py:41
+#: .\main_app\models.py:44
 msgid "Product|plural"
 msgstr "Products"
 
-#: .\main_app\models.py:50
+#: .\main_app\models.py:53
 msgid "Product|image"
 msgstr "Image"
 
-#: .\main_app\models.py:54
+#: .\main_app\models.py:57
 msgid "ProductImage|name"
 msgstr "Product name"
 
-#: .\main_app\models.py:64
+#: .\main_app\models.py:67
 msgid "ProductImage|image"
 msgstr "Image"
 
-#: .\main_app\models.py:70
+#: .\main_app\models.py:73
 msgid "ProductImage"
 msgstr "Image"
 
-#: .\main_app\models.py:71
+#: .\main_app\models.py:74
 msgid "ProductImage|plural"
 msgstr "Images"
 
-#: .\main_app\models.py:78 .\main_app\models.py:111
+#: .\main_app\models.py:81 .\main_app\models.py:114
 msgid "News|body"
 msgstr "Body"
 
-#: .\main_app\models.py:79
+#: .\main_app\models.py:82
 msgid "News|carousel"
 msgstr "Show in carousel"
 
-#: .\main_app\models.py:83
+#: .\main_app\models.py:86
 msgid "News|image"
 msgstr "Image"
 
-#: .\main_app\models.py:90
+#: .\main_app\models.py:93
 msgid "News|created"
 msgstr "Created"
 
-#: .\main_app\models.py:91
+#: .\main_app\models.py:94
 msgid "News|updated"
 msgstr "Updated"
 
-#: .\main_app\models.py:94
+#: .\main_app\models.py:97
 msgid "News"
 msgstr "News"
 
-#: .\main_app\models.py:95
+#: .\main_app\models.py:98
 msgid "News|plural"
 msgstr "News"
 
-#: .\main_app\models.py:112
+#: .\main_app\models.py:115
 msgid "News|Image"
 msgstr "Image"
 
-#: .\main_app\models.py:140
+#: .\main_app\models.py:143
 msgid "Contact|social"
 msgstr "Social Network"
 
-#: .\main_app\models.py:141
+#: .\main_app\models.py:144
 msgid "Contact|other"
 msgstr "Other"
 
-#: .\main_app\models.py:144
+#: .\main_app\models.py:147
 msgid "Contact|title"
 msgstr "Title"
 
-#: .\main_app\models.py:145
+#: .\main_app\models.py:148
 msgid "Contact|url_text"
 msgstr "Text for URL"
 
-#: .\main_app\models.py:146
+#: .\main_app\models.py:149
 msgid "Contact|url"
 msgstr "URL"
 
-#: .\main_app\models.py:147
+#: .\main_app\models.py:150
 msgid "Contact|type"
 msgstr "Type"
 
-#: .\main_app\models.py:151 .\main_app\models.py:166
+#: .\main_app\models.py:154 .\main_app\models.py:169
 msgid "Contact|image"
 msgstr "Image"
 
-#: .\main_app\models.py:152
+#: .\main_app\models.py:155
 msgid "Contact|created"
 msgstr "Created"
 
-#: .\main_app\models.py:153
+#: .\main_app\models.py:156
 msgid "Contact|updated"
 msgstr "Updated"
 
-#: .\main_app\models.py:156
+#: .\main_app\models.py:159
 msgid "Contact"
 msgstr "Contact"
 
-#: .\main_app\models.py:157
+#: .\main_app\models.py:160
 msgid "Contact|plural"
 msgstr "Contacts"
 
-#: .\main_app\models.py:170
+#: .\main_app\models.py:173
 #, fuzzy
 #| msgid "Product|Accessory"
 msgid "Product|AccessCode"
 msgstr "Accessory"
 
-#: .\main_app\models.py:171
+#: .\main_app\models.py:174
 msgid "AccessCode|code"
 msgstr ""
 
-#: .\main_app\models.py:172
+#: .\main_app\models.py:175
 msgid "AccessCode|usage"
 msgstr ""
 
-#: .\main_app\models.py:173
+#: .\main_app\models.py:176
 msgid "AccessCode|qrcode"
 msgstr ""
 
-#: .\main_app\models.py:195
+#: .\main_app\models.py:178
+#, fuzzy
+#| msgid "News|image"
+msgid "AccessCode|activated"
+msgstr "Image"
+
+#: .\main_app\models.py:179
+#, fuzzy
+#| msgid "News|image"
+msgid "AccessCode|created"
+msgstr "Image"
+
+#: .\main_app\models.py:180
+#, fuzzy
+#| msgid "News|image"
+msgid "AccessCode|updated"
+msgstr "Image"
+
+#: .\main_app\models.py:200
+#, fuzzy
+#| msgid "News|image"
+msgid "AccessCode"
+msgstr "Image"
+
+#: .\main_app\models.py:201
+#, fuzzy
+#| msgid "News|image"
+msgid "AccessCode|plural"
+msgstr "Image"
+
+#: .\main_app\models.py:204
 #, fuzzy
 #| msgid "News|image"
 msgid "AccessCode|image"
@@ -240,15 +281,20 @@ msgstr "Image"
 #: .\main_app\templates\accessory\base.html:6
 #: .\main_app\templates\base\footer.html:12
 #: .\main_app\templates\base\header.html:25
-#: .\main_app\templates\user\profile.html:10
+#: .\main_app\templates\user\favorite.html:19
 msgid "Accessories"
 msgstr ""
 
-#: .\main_app\templates\activation\activate.html:18
+#: .\main_app\templates\activation\activate.html:23
 #, fuzzy
 #| msgid "ActivateProduct"
 msgid "Activate"
 msgstr "Activate"
+
+#: .\main_app\templates\activation\activate.html:32
+#: .\main_app\templates\activation\success.html:11
+msgid "You have successfully registered your product!"
+msgstr ""
 
 #: .\main_app\templates\activation\base.html:6
 msgid "ActivateProduct"
@@ -286,6 +332,7 @@ msgstr "New here? Create an account "
 
 #: .\main_app\templates\authentication\password_reset.html:29
 #: .\main_app\templates\authentication\recovery.html:33
+#: .\main_app\templates\authentication\signup.html:32
 msgid "Submit"
 msgstr ""
 
@@ -305,8 +352,8 @@ msgstr ""
 msgid "Now you can do login with your new password"
 msgstr ""
 
-#: .\main_app\templates\authentication\signup.html:37
-#: .\main_app\templates\authentication\signup.html:39
+#: .\main_app\templates\authentication\signup.html:36
+#: .\main_app\templates\authentication\signup.html:38
 msgid "Have an account?"
 msgstr "Have an account? Login here"
 
@@ -322,7 +369,7 @@ msgstr ""
 #: .\main_app\templates\base\footer.html:11
 #: .\main_app\templates\base\header.html:22
 #: .\main_app\templates\insert\base.html:6
-#: .\main_app\templates\user\profile.html:10
+#: .\main_app\templates\user\favorite.html:19
 msgid "Inserts"
 msgstr ""
 
@@ -353,24 +400,56 @@ msgstr ""
 msgid "Logout"
 msgstr ""
 
-#: .\main_app\templates\user\profile.html:7
+#: .\main_app\templates\user\favorite.html:6
+#: .\main_app\templates\user\tabs.html:5
+msgid "Favorite"
+msgstr ""
+
+#: .\main_app\templates\user\favorite.html:16
 msgid "Hello"
 msgstr ""
 
-#: .\main_app\templates\user\profile.html:9
+#: .\main_app\templates\user\favorite.html:18
 msgid "You have favorited following products"
 msgstr ""
 
-#: .\main_app\templates\user\profile.html:10
+#: .\main_app\templates\user\favorite.html:19
 msgid "You have not favorited any product yet, go to"
 msgstr ""
 
-#: .\main_app\templates\user\profile.html:10
+#: .\main_app\templates\user\favorite.html:19
 msgid "or to"
 msgstr ""
 
-#: .\main_app\templates\user\profile.html:10
+#: .\main_app\templates\user\favorite.html:19
 msgid "pages to select something"
+msgstr ""
+
+#: .\main_app\templates\user\products.html:6
+#: .\main_app\templates\user\tabs.html:6
+#, fuzzy
+#| msgid "Product"
+msgid "My Products"
+msgstr "Product"
+
+#: .\main_app\templates\user\products.html:16
+msgid "You have not activated any product yet"
+msgstr ""
+
+#: .\main_app\templates\user\profile.html:6
+msgid "User information"
+msgstr ""
+
+#: .\main_app\templates\user\profile.html:20
+msgid "Update you profile data"
+msgstr ""
+
+#: .\main_app\templates\user\profile.html:37
+msgid "Update"
+msgstr ""
+
+#: .\main_app\templates\user\tabs.html:4
+msgid "User Info"
 msgstr ""
 
 #: .\main_app\views.py:52
@@ -404,3 +483,15 @@ msgid "activation key is not found"
 msgstr ""
 "Password reset link is not exist. Please, use form below to reset your "
 "password"
+
+#: .\main_app\views.py:207
+msgid "Profile updated successfully"
+msgstr ""
+
+#: .\main_app\views.py:274
+msgid "No such access code"
+msgstr ""
+
+#: .\main_app\views.py:277
+msgid "Code already used"
+msgstr ""

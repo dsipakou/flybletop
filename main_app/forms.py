@@ -29,6 +29,35 @@ class LoginForm(forms.Form):
         attrs={'placeholder': _('Password'), 'class': 'form-control'}), max_length=40, min_length=6)
 
 
+class ProfileForm(forms.Form):
+    email = forms.EmailField(label=_('Email'), widget=forms.EmailInput(
+        attrs={'placeholder': _('New Email'), 'class': 'form-control'}), max_length=100,
+                             error_messages={'invalid': _('Invalid e-mail')})
+    username = forms.CharField(label=_('Username'), widget=forms.TextInput(
+        attrs={'placeholder': _('New Username'), 'class': 'form-control'}), max_length=30, min_length=3)
+
+    def clean(self):
+        username = self.cleaned_data.get('username')
+        if not self.user.username == username:
+            if len(User.objects.filter(username=username)) > 0:
+                self._errors['username'] = ErrorList([_('Given username is already in use')])
+        email = self.cleaned_data.get('email')
+        if not self.user.email == email:
+            if len(User.objects.filter(email=email)) > 0:
+                self._errors['email'] = ErrorList([_('Given email address is already in use')])
+
+        return self.cleaned_data
+
+    def save(self):
+        self.user.username = self.cleaned_data.get('username')
+        self.user.email = self.cleaned_data.get('email')
+        self.user.save()
+
+    def __init__(self, *args, **kwargs):
+        self.user = kwargs.pop('user', None)
+        super(ProfileForm, self).__init__(*args, **kwargs)
+
+
 class RegistrationForm(forms.Form):
     username = forms.CharField(label="", widget=forms.TextInput(
         attrs={'placeholder': _('Username'), 'class': 'form-control'}), max_length=30, min_length=3)
@@ -43,6 +72,7 @@ class RegistrationForm(forms.Form):
                                                                   'class': 'form-control'}))
 
     def clean(self):
+
         username = self.cleaned_data.get('username')
         if len(User.objects.filter(username=username)) > 0:
             self._errors['username'] = ErrorList([_('Given username is already in use')])
