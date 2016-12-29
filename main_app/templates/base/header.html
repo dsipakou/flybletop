@@ -45,7 +45,7 @@
         </form>
         <ul class="nav navbar-nav navbar-right text-center collapse navbar-collapse align-middle">
             {% if user.is_authenticated %}
-                <li><a href="{% url 'profile' %}" class="align-right">{% trans 'My Profile' %}</a></li>
+                <li><a href="{% url 'myproducts' %}" class="align-right">{% trans 'My Profile' %}</a></li>
                 <li><a href="{% url 'logout' %}?next={{ request.path }}" class="align-right">{% trans 'Logout' %}</a></li>
             {% else %}
                 {% block auth_links %}
@@ -54,11 +54,5 @@
                 {% endblock %}
             {% endif %}
         </ul>
-        <p>
-            <form class="form-inline float-xs-right navbar-right hidden-xs hidden-sm align-middle">
-                <input class="form-control" type="text" placeholder="Search">
-                <button class="btn align-middle btn-success" type="submit">Search</button>
-            </form>
-        </p>
     </div>
 </nav>

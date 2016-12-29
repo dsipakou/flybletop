@@ -1,7 +1,7 @@
 {% load i18n %}
 
 <ul class="nav nav-tabs">
-    <li class="{% if userinfo %}active{% endif %}"><a href="{% url 'profile' %}">{% trans 'User Info' %}</a></li>
-    <li class="{% if favorite %}active{% endif %}"><a href="{% url 'favorite' %}">{% trans 'Favorite' %}</a></li>
     <li class="{% if myproducts %}active{% endif %}"><a href="{% url 'myproducts' %}">{% trans 'My Products' %}</a></li>
+    <li class="{% if favorite %}active{% endif %}"><a href="{% url 'favorite' %}">{% trans 'Favorite' %}</a></li>
+    <li class="{% if userinfo %}active{% endif %}"><a href="{% url 'profile' %}">{% trans 'User Info' %}</a></li>
 </ul>

@@ -476,6 +476,3 @@ msgstr "Такого ключа не существует"
 #: .\main_app\views.py:277
 msgid "Code already used"
 msgstr "Ключ уже использован"
-
-#~ msgid "Caverna insert"
-#~ msgstr "Органайзер для каверны"
