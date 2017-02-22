@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% load render_bundle from webpack_loader %}
+
+{% block head %}
+    {% render_bundle 'insert' %}
+{% endblock %}
 
 {% block breadcrumb %}
     {{ block.super }}

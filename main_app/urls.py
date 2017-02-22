@@ -1,7 +1,16 @@
 from django.conf.urls import url, include
 from django.conf import settings
 from django.views.static import serve
+from tastypie.api import Api
 from . import views
+from .api import ProductResource, ProductDetailsResource
+
+v1_api = Api(api_name='v1')
+v1_api.register(ProductResource())
+v1_api.register(ProductDetailsResource())
+
+product_resource = ProductResource()
+
 
 urlpatterns = [
     url(r'^login/$', views.login_view, name='login'),
@@ -22,7 +31,8 @@ urlpatterns = [
     url(r'^activate/(?P<activation_key>[^/]+)/$', views.activate_product, name='activate_product_key'),
     url(r'^favorite_product/$', views.favorite_product, name='favorite_product'),
     url(r'^like_product/$', views.like_product, name='like_product'),
-    url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT,}),
+    url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT, }),
+    url(r'^api/', include(v1_api.urls))
 ]
 
 if settings.DEBUG:

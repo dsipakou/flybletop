@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'imagekit',
-    'ckeditor'
+    'ckeditor',
+    'webpack_loader'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -142,6 +143,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
@@ -167,3 +169,10 @@ EMAIL_HOST_USER = 'flybletop@gmail.com'
 EMAIL_HOST_PASSWORD = 'tspzkynysrcyvcxz'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': '/bundles/',
+        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json')
+    }
+}
